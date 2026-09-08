@@ -1,31 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>GaijinKudasai Template</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-  <!-- Global Header -->
-  <div id="global-header"></div>
-
-  <!-- Quick Links / Tools Bar -->
-  <div class="subbar">
-    <div class="subbar-section">
-      <strong>Quick Links:</strong>
-      <a href="#">News</a>
-      <a href="#">Weather</a>
-      <a href="#">Markets</a>
-      <a href="#">Reference</a>
-    </div>
-    <div class="subbar-section">
-      <strong>Tools:</strong>
-      <a href="#">Email</a>
-      <a href="#">Search</a>
-      <a href="#">Site Map</a>
     </div>
   </div>
 
@@ -125,48 +97,7 @@
           <strong>Gaijin (外人):</strong> A Japanese word meaning “outside person,” used for foreigners.<br><br>
           <strong>Tradecraft (諜報技術):</strong> Specialized skills used in espionage.<br><br>
           <strong>Gaijin Tradecraft:</strong> Blending into Japanese society through mimicry, conformity, and cultural awareness.
-        </p>
-        <a href="Contribute.html" class="btn-primary" target="_blank">Be a Contributer</a>
-      </section>
-
-      <div class="grid-3">
-        <section class="panel">
-          <h2 class="panel-title">Aozora Bunko</h2>
-          <h3 class="item-heading">Japan's free online literary project</h3>
-          <p>A volunteer-run collection of classic texts and public-domain works.</p>
-          <a href="https://aozora.gr.jp" target="_blank" class="more-link">Visit site</a>
-        </section>
-
-        <section class="panel">
-          <h2 class="panel-title">Today in Japanese History</h2>
-          <p>Learn Japanese history one day at a time.</p>
-          <a href="https://www.onthisday.com/today/japanese-history.php" target="_blank" class="more-link">Visit site</a>
-        </section>
-
-        <section class="panel">
-          <h2 class="panel-title">Old Photos of Japan</h2>
-          <p>Explore Japan’s photographic timeline by city, period, or theme.</p>
-          <a href="https://www.oldphotosjapan.com/" target="_blank" class="more-link">Visit site</a>
-        </section>
-      </div>
-
-      <section class="panel">
-        <h2 class="panel-title">Japanese Word of the Day</h2>
-        <p><strong>Kudasai</strong> — Please.</p>
-        <p class="small">
-          Mizu wo kudasai — Water, please.<br>
-          Matte kudasai — Please wait.
-        </p>
-        <a href="#" class="more-link">More word resources</a>
-      </section>
-
-      <section class="panel">
-        <h2 class="panel-title">Gaijin Tradecraft</h2>
-        <p>
-          Tourism Pollution (観光公害)<br><br>
-          Kuuki ga Yomenai — Can't read the room<br>
-          Meiwaku-gaijin — Nuisance foreigner<br>
-          Hijoushikijin — Lacking common sense
+ common sense
         </p>
         <a href="https://www.japan.travel/en/us/" target="_blank" class="more-link">Visit site</a>
       </section>
