@@ -1,469 +1,321 @@
-/* ============================================================
-   ROOT + GLOBAL
-============================================================ */
-:root {
-  --bg: #A0D8EF;
-  --bg-panel: #ffffff;
-  --border-soft: #dcdcdc;
-  --accent: #1f4f8f;
-  --accent-soft: #e4edf8;
-  --text-main: #222;
-  --text-muted: #666;
-  --link: #1f4f8f;
-  --link-hover: #0c2f5a;
-  --shadow-soft: 0 1px 3px rgba(0, 0, 0, 0.08);
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GaijinKudasai Template</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+<body>
 
-body {
-  margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: var(--bg);
-  color: var(--text-main);
-  font-size: 16px;
-}
+  <!-- Global Header -->
+  <div id="global-header"></div>
 
-/* ============================================================
-   TOP BAR
-============================================================ */
-.topbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px 24px;
-  background: #fff;
-  border-bottom: 3px solid var(--accent);
-  box-shadow: var(--shadow-soft);
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  gap: 24px;
-}
+  <!-- Quick Links / Tools Bar -->
+  <div class="subbar">
+    <div class="subbar-section">
+      <strong>Quick Links:</strong>
+      <a href="#">News</a>
+      <a href="#">Weather</a>
+      <a href="#">Markets</a>
+      <a href="#">Reference</a>
+    </div>
+    <div class="subbar-section">
+      <strong>Tools:</strong>
+      <a href="#">Email</a>
+      <a href="#">Search</a>
+      <a href="#">Site Map</a>
+    </div>
+  </div>
 
-.topbar-left,
-.topbar-center,
-.topbar-right {
-  display: flex;
-  flex-direction: column;
-}
+  <!-- MAIN LAYOUT -->
+  <main class="layout">
 
-.topbar-left {
-  flex: 2;
-  align-items: flex-start;
-}
+    <!-- ========================================================= -->
+    <!-- LEFT COLUMN (Quick Links, JMA, Trains, Airports, SOFA...) -->
+    <!-- ========================================================= -->
+    <div class="column column-left">
 
-.topbar-center {
-  flex: 1;
-  align-items: center;
-}
+      <section class="panel">
+        <h2 class="panel-title">Japan Meteorological Agency</h2>
+        <ul class="link-list">
+          <li><a href="https://www.jma.go.jp/bosai/#lang=en&pattern=forecast" target="_blank">Current Weather</a></li>
+          <li><a href="https://www.jma.go.jp/bosai/en_suikei/#lat:37.996163/lon:138.999023/zoom:5/colordepth:normal/elements:wthr" target="_blank">Radar Loop</a></li>
+          <li><a href="https://www.jma.go.jp/bosai/map.html#5/30.695/141.328/&elem=root&typhoon=all&contents=typhoon&lang=en" target="_blank">Tropical Cyclone Information</a></li>
+          <li><a href="https://www.jma.go.jp/bosai/map.html#5/34.5/137/&contents=forecast&lang=en" target="_blank">Japan Temps</a></li>
+          <li><a href="https://www.seatemperature.org/asia/japan/" target="_blank">Japan Water Temps</a></li>
+          <li><a href="#">Japan Maps</a></li>
+        </ul>
+      </section>
 
-.topbar-right {
-  flex: 2;
-  align-items: flex-end;
-}
+      <section class="panel">
+        <h2 class="panel-title">Trains/Shinkansen (Bullet)</h2>
+        <ul class="link-list">
+          <li><a href="https://japanrailpass.net/en/" target="_blank">Japan Rail Pass</a></li>
+          <li><a href="https://www.jreast.co.jp/en/multi/" target="_blank">East (Tokyo/Tohoku/Nagano)</a></li>
+          <li><a href="https://global.jr-central.co.jp/en/" target="_blank">Central (Nagoya/Kyoto/Osaka)</a></li>
+          <li><a href="https://www.westjr.co.jp/global/en/" target="_blank">West (Osaka/Kyoto/Hiroshima)</a></li>
+          <li><a href="https://www.jrkyushu.co.jp/english/" target="_blank">South (Kyushu)</a></li>
+          <li><a href="https://smart-ex.jp/en/" target="_blank">From Tokyo to Kyushu</a></li>
+          <li><a href="https://www.eki-net.com/en/jreast-train-reservation/Top/Index" target="_blank">EKI-Net (North of Tokyo)</a></li>
+        </ul>
+      </section>
 
-.site-title,
-.site-title-right {
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: var(--accent);
-  margin: 0;
-  line-height: 1.2;
-}
+      <section class="panel">
+        <h2 class="panel-title">Major Airports</h2>
+        <ul class="link-list">
+          <li><a href="https://tokyo-haneda.com/en/index.html" target="_blank">Tokyo (Haneda) International</a></li>
+          <li><a href="https://www.narita-airport.jp/en/" target="_blank">Tokyo (Narita) International</a></li>
+          <li><a href="https://www.centrair.jp/en/" target="_blank">Nagoya (Chubu) International</a></li>
+          <li><a href="https://www.kansai-airport.or.jp/en" target="_blank">Osaka (Kansai) International</a></li>
+          <li><a href="https://www.naha-airport.co.jp/en/" target="_blank">Okinawa (Naha) International</a></li>
+          <li><a href="https://www.osaka-airport.co.jp/en" target="_blank">Osaka (Itami) Domestic</a></li>
+        </ul>
+      </section>
 
-.tagline,
-.live-date-container {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  margin-top: 8px;
-  line-height: 1.4;
-}
+      <section class="panel">
+        <h2 class="panel-title">SOFA Personnel Links</h2>
+        <ul class="link-list">
+          <li><a href="https://cnrj.cnic.navy.mil/Installations/CFA-Yokosuka/" target="_blank">CFA - Yokosuka</a></li>
+          <li><a href="https://cnrj.cnic.navy.mil/Installations/NAF-Misawa/" target="_blank">NAF - Misawa</a></li>
+          <li><a href="https://cnrj.cnic.navy.mil/Installations/CFA-Sasebo/" target="_blank">CFA - Sasebo</a></li>
+          <li><a href="https://www.mcbbutler.marines.mil/" target="_blank">Marine Corps Base Camp Butler</a></li>
+        </ul>
+      </section>
 
-.navy-logo {
-  height: 65px;
-  width: auto;
-  object-fit: contain;
-}
+      <section class="panel">
+        <h2 class="panel-title">Restaurants</h2>
+        <ul class="link-list">
+          <li><a href="#">Recommended Places</a></li>
+          <li><a href="#">Restaurant Etiquette</a></li>
+          <li><a href="#">Menu Advice</a></li>
+          <li><a href="#">Understanding</a></li>
+          <li><a href="#">Japan</a></li>
+          <li><a href="#">Japan 2</a></li>
+        </ul>
+      </section>
 
-/* ============================================================
-   SUBBAR
-============================================================ */
-.subbar {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 4px 16px;
-  padding: 6px 16px;
-  background: #f0f3f8;
-  border-bottom: 1px solid var(--border-soft);
-  font-size: 0.85rem;
-}
+      <!-- Search & Tools (moved inside left column) -->
+      <section class="panel">
+        <h2 class="panel-title">Search & Tools</h2>
 
-.subbar-section {
-  margin: 2px 0;
-}
+        <label class="field-label">Search the Gaijin Kudasai Portal</label>
+        <input type="text" class="field" placeholder="Search anything…">
+        <button class="btn-secondary">Search</button>
 
-.subbar-section a {
-  margin-left: 8px;
-  text-decoration: none;
-  color: var(--link);
-}
-.subbar-section a:hover {
-  color: var(--link-hover);
-}
+        <label class="field-label">Search Wikipedia</label>
+        <input type="text" class="field" placeholder="Topic…">
 
-/* ============================================================
-   MAIN LAYOUT (DESKTOP GRID)
-============================================================ */
-.layout {
-  display: grid;
-  grid-template-columns: 260px minmax(0, 1fr) 260px;
-  gap: 16px;
-  padding: 16px;
-  max-width: 1400px;
-  margin: 0 auto;
-}
+        <label class="field-label">Stock Quotes</label>
+        <input type="text" class="field" placeholder="Symbol…">
+      </section>
 
-.column {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  min-width: 0;
-}
+    </div>
 
-/* ============================================================
-   PANELS
-============================================================ */
-.panel {
-  background: var(--bg-panel);
-  border: 1px solid var(--border-soft);
-  border-radius: 4px;
-  padding: 10px 12px;
-  box-shadow: var(--shadow-soft);
-}
 
-.panel-title {
-  font-size: 0.95rem;
-  font-weight: 700;
-  margin: 0 0 6px;
-  border-bottom: 1px solid var(--border-soft);
-  padding-bottom: 4px;
-}
+    <!-- ========================================================= -->
+    <!-- CENTER COLUMN (Main Content) -->
+    <!-- ========================================================= -->
+    <div class="column column-center">
 
-.highlight {
-  background: var(--accent-soft);
-  border-color: #c3d4f3;
-}
+      <section class="panel highlight">
+        <h2 class="panel-title">Have something to contribute to the website?</h2>
+        <p>
+          <strong>Gaijin (外人):</strong> A Japanese word meaning “outside person,” used for foreigners.<br><br>
+          <strong>Tradecraft (諜報技術):</strong> Specialized skills used in espionage.<br><br>
+          <strong>Gaijin Tradecraft:</strong> Blending into Japanese society through mimicry, conformity, and cultural awareness.
+        </p>
+        <a href="Contribute.html" class="btn-primary" target="_blank">Be a Contributer</a>
+      </section>
 
-/* ============================================================
-   NEWS WIDGET
-============================================================ */
-.news-widget-panel {
-  display: flex;
-  flex-direction: column;
-}
+      <div class="grid-3">
+        <section class="panel">
+          <h2 class="panel-title">Aozora Bunko</h2>
+          <h3 class="item-heading">Japan's free online literary project</h3>
+          <p>A volunteer-run collection of classic texts and public-domain works.</p>
+          <a href="https://aozora.gr.jp" target="_blank" class="more-link">Visit site</a>
+        </section>
 
-#news-source-dropdown {
-  width: 100%;
-  padding: 6px 8px;
-  margin: 4px 0 8px;
-  font-size: 0.85rem;
-  border: 1px solid var(--border-soft);
-  border-radius: 4px;
-  background: #fff;
-  cursor: pointer;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
+        <section class="panel">
+          <h2 class="panel-title">Today in Japanese History</h2>
+          <p>Learn Japanese history one day at a time.</p>
+          <a href="https://www.onthisday.com/today/japanese-history.php" target="_blank" class="more-link">Visit site</a>
+        </section>
 
-#news-results {
-  max-height: 380px;
-  overflow-y: auto;
-  margin-top: 6px;
-  padding-right: 4px;
-}
+        <section class="panel">
+          <h2 class="panel-title">Old Photos of Japan</h2>
+          <p>Explore Japan’s photographic timeline by city, period, or theme.</p>
+          <a href="https://www.oldphotosjapan.com/" target="_blank" class="more-link">Visit site</a>
+        </section>
+      </div>
 
-#news-results .news-item {
-  padding: 6px 0;
-  border-bottom: 1px solid #f0f0f0;
-  font-size: 0.85rem;
-  line-height: 1.35;
-}
+      <section class="panel">
+        <h2 class="panel-title">Japanese Word of the Day</h2>
+        <p><strong>Kudasai</strong> — Please.</p>
+        <p class="small">
+          Mizu wo kudasai — Water, please.<br>
+          Matte kudasai — Please wait.
+        </p>
+        <a href="#" class="more-link">More word resources</a>
+      </section>
 
-#news-results .news-item:last-child {
-  border-bottom: none;
-}
+      <section class="panel">
+        <h2 class="panel-title">Gaijin Tradecraft</h2>
+        <p>
+          Tourism Pollution (観光公害)<br><br>
+          Kuuki ga Yomenai — Can't read the room<br>
+          Meiwaku-gaijin — Nuisance foreigner<br>
+          Hijoushikijin — Lacking common sense
+        </p>
+        <a href="https://www.japan.travel/en/us/" target="_blank" class="more-link">Visit site</a>
+      </section>
 
-#news-results a {
-  color: var(--link);
-  text-decoration: none;
-  display: block;
-  word-break: break-word;
-}
-#news-results a:hover {
-  color: var(--link-hover);
-  text-decoration: underline;
-}
+      <section class="panel">
+        <h2 class="panel-title">Manga and Anime quick links</h2>
+        <ul class="bullet-list">
+          <li><a href="#">Link 1</a></li>
+          <li><a href="#">Link 2</a></li>
+          <li><a href="#">Link 3</a></li>
+        </ul>
+        <a href="#" class="more-link">More Manga and Anime Sources</a>
+      </section>
 
-#news-results .news-date {
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  margin-top: 2px;
-}
+      <section class="panel">
+        <h2 class="panel-title">Daily Diversions</h2>
+        <div class="tag-grid">
+          <a href="#" class="tag">Crosswords</a>
+          <a href="#" class="tag">Sudoku</a>
+          <a href="#" class="tag">Brain Teasers</a>
+          <a href="#" class="tag">Poetry</a>
+          <a href="#" class="tag">Games</a>
+          <a href="#" class="tag">Science Daily</a>
+        </div>
+      </section>
 
-/* ============================================================
-   LISTS & TEXT
-============================================================ */
-.link-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.link-list li {
-  margin: 3px 0;
-}
-.link-list a {
-  text-decoration: none;
-  color: var(--link);
-  font-size: 0.9rem;
-}
-.link-list a:hover {
-  color: var(--link-hover);
-}
+    </div>
 
-.bullet-list {
-  padding-left: 18px;
-  margin: 4px 0;
-}
-.bullet-list li {
-  margin: 3px 0;
-  font-size: 0.9rem;
-}
 
-.item-heading {
-  font-size: 1rem;
-  margin: 4px 0;
-}
+    <!-- ========================================================= -->
+    <!-- RIGHT COLUMN (News + Utility Panels) -->
+    <!-- ========================================================= -->
+    <div class="column column-right">
 
-.more-link {
-  display: inline-block;
-  margin-top: 4px;
-  font-size: 0.85rem;
-  color: var(--link);
-  text-decoration: none;
-}
-.more-link:hover {
-  color: var(--link-hover);
-  text-decoration: underline;
-}
+      <section class="panel news-widget-panel">
+        <h2 class="panel-title">Latest Japanese Headlines</h2>
+        <select id="news-source-dropdown" class="field">
+          <option value="https://www.japantimes.co.jp/feed/" selected>The Japan Times</option>
+          <option value="https://www3.nhk.or.jp/rss/news/cat0.xml">NHK World Japan</option>
+          <option value="https://www.asahi.com/ajw/rss/ajw.xml">The Asahi Shimbun</option>
+          <option value="https://english.kyodonews.net/rss/news.xml">Kyodo News</option>
+        </select>
+        <div id="news-results"></div>
+      </section>
 
-blockquote {
-  margin: 4px 0;
-  padding-left: 10px;
-  border-left: 3px solid var(--accent);
-  font-size: 0.9rem;
-}
+      <section class="panel">
+        <h2 class="panel-title">Gaijin Tradecraft</h2>
+        <ul class="link-list">
+          <li><a href="TheReality.html" target="_blank">The Reality (Read First)</a></li>
+          <li><a href="RestaurantRequirements.html" target="_blank">Restaurant Requirements</a></li>
+          <li><a href="PublicTransport.html" target="_blank">Public Transport</a></li>
+          <li><a href="BarEtiquette.html" target="_blank">Bar Etiquette</a></li>
+        </ul>
+      </section>
 
-.quote-author {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-}
+      <section class="panel">
+        <h2 class="panel-title">Look Up</h2>
+        <ul class="link-list">
+          <li><a href="#">People Finder</a></li>
+          <li><a href="#">White Pages</a></li>
+          <li><a href="#">Yellow Pages</a></li>
+          <li><a href="#">Driving Directions</a></li>
+        </ul>
+      </section>
 
-.small {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-}
+      <section class="panel">
+        <h2 class="panel-title">Just for Fun</h2>
+        <ul class="link-list">
+          <li><a href="#">Jokes & Puns</a></li>
+          <li><a href="#">Online Games</a></li>
+          <li><a href="#">Optical Illusions</a></li>
+          <li><a href="#">Random Article</a></li>
+        </ul>
+      </section>
 
-/* ============================================================
-   GRID MODULES
-============================================================ */
-.grid-3 {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 12px;
-  margin: 12px 0;
-}
+    </div>
 
-/* ============================================================
-   TAGS
-============================================================ */
-.tag-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
+  </main>
 
-.tag {
-  font-size: 0.8rem;
-  padding: 4px 8px;
-  border-radius: 999px;
-  background: #eef1f7;
-  text-decoration: none;
-  color: var(--link);
-}
-.tag:hover {
-  background: #dde4f4;
-}
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="#">About</a>
+      <a href="#">Site Map</a>
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Contact</a>
+    </div>
+    <p class="footer-note">
+      Some sections may be hidden on small screens. © 2026 Reference Portal. External links are not endorsed.
+    </p>
+  </footer>
 
-/* ============================================================
-   FORMS
-============================================================ */
-.field-label {
-  display: block;
-  margin-top: 6px;
-  font-size: 0.8rem;
-  color: var(--text-muted);
-}
+  <!-- News Loader Script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const dropdown = document.getElementById('news-source-dropdown');
+      const resultsContainer = document.getElementById('news-results');
+      const CORS_PROXY = "https://api.rss2json.com/v1/api.json?rss_url=";
 
-.field {
-  width: 100%;
-  padding: 8px 10px;
-  margin-top: 2px;
-  border-radius: 3px;
-  border: 1px solid var(--border-soft);
-  font-size: 1rem;
-}
+      function fetchAndRenderFeed(rssUrl) {
+        if (!rssUrl) {
+          resultsContainer.innerHTML = '';
+          return;
+        }
 
-.btn-primary,
-.btn-secondary {
-  margin-top: 8px;
-  padding: 8px 12px;
-  font-size: 1rem;
-  border-radius: 3px;
-  border: none;
-  cursor: pointer;
-}
+        resultsContainer.innerHTML = '<div class="news-loading">Loading top stories...</div>';
+        const apiUrl = CORS_PROXY + encodeURIComponent(rssUrl);
 
-.btn-primary {
-  background: var(--accent);
-  color: #fff;
-}
-.btn-primary:hover {
-  background: var(--link-hover);
-}
+        fetch(apiUrl)
+          .then(response => response.json())
+          .then(data => {
+            if (data.status === 'ok') {
+              const topArticles = data.items.slice(0, 10);
+              let htmlContent = '<ul class="news-articles-list" style="list-style:none; padding:0; margin:0;">';
 
-.btn-secondary {
-  background: #e4e7ec;
-  color: var(--text-main);
-}
-.btn-secondary:hover {
-  background: #d3d7df;
-}
+              topArticles.forEach(article => {
+                htmlContent += `
+                  <li style="margin: 6px 0; border-bottom: 1px solid #f0f0f0; padding-bottom: 4px;">
+                    <a href="${article.link}" target="_blank" rel="noopener noreferrer" class="news-link" style="text-decoration:none; color:#1f4f8f; font-size:0.9rem; word-break:break-word;">
+                      ${article.title}
+                    </a>
+                  </li>
+                `;
+              });
 
-/* ============================================================
-   FOOTER
-============================================================ */
-.footer {
-  border-top: 1px solid var(--border-soft);
-  padding: 12px 16px 20px;
-  background: #fff;
-  margin-top: 16px;
-  font-size: 0.85rem;
-}
+              htmlContent += '</ul>';
+              resultsContainer.innerHTML = htmlContent;
+            } else {
+              resultsContainer.innerHTML = '<div class="news-error">Unable to load feed. Please try again.</div>';
+            }
+          })
+          .catch(error => {
+            console.error("Fetch error:", error);
+            resultsContainer.innerHTML = '<div class="news-error">Network error loading news.</div>';
+          });
+      }
 
-.footer-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 4px;
-  justify-content: center;
-}
+      dropdown.addEventListener('change', function() {
+        fetchAndRenderFeed(this.value);
+      });
 
-.footer-links a {
-  text-decoration: none;
-  color: var(--link);
-}
-.footer-links a:hover {
-  color: var(--link-hover);
-}
+      if (dropdown.value) {
+        fetchAndRenderFeed(dropdown.value);
+      }
+    });
+  </script>
 
-.footer-note {
-  color: var(--text-muted);
-  text-align: center;
-}
+  <script src="header.js"></script>
 
-/* ============================================================
-   RESPONSIVE — TABLET
-============================================================ */
-@media (max-width: 1100px) and (min-width: 901px) {
-  .layout {
-    grid-template-columns: 220px minmax(0, 1fr) 220px;
-    gap: 12px;
-    padding: 12px;
-  }
-}
-
-/* ============================================================
-   RESPONSIVE — MOBILE (TRUE ORDER CONTROL)
-============================================================ */
-@media (max-width: 900px) {
-
-  /* collapse to single column grid */
-  .layout {
-    grid-template-columns: 1fr;
-    gap: 12px;
-    padding: 12px;
-  }
-
-  /* MOBILE ORDER:
-     1 = center column (header + main)
-     2 = left column (quick links)
-     3 = right column (news dropdown)
-  */
-
-  .column-center { grid-row: 1; }
-  .column-left   { grid-row: 2; }
-  .column-right  { grid-row: 3; }
-
-  .grid-3 {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* ============================================================
-   RESPONSIVE — SMALL MOBILE
-============================================================ */
-@media (max-width: 600px) {
-  .topbar {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .topbar-right {
-    gap: 16px;
-  }
-
-  .subbar {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .subbar-section {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .subbar-section a {
-    margin-left: 0;
-  }
-
-  .tagline {
-    display: none;
-  }
-
-  .footer {
-    padding: 12px 16px;
-    text-align: center;
-  }
-
-  .footer-links {
-    justify-content: center;
-  }
-}
+</body>
+</html>
