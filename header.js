@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
       <!-- CENTER COLUMN: Centered Gaijin Image -->
       <div class="topbar-center">
         <a href="${basePath}index.html">
-          <img src="${basePath}site_images/GK_logo1.png" alt="Logo HERE" class="navy-logo">
+          <img src="${basePath}GK_logo1.png" alt="Logo HERE" class="navy-logo">
         </a>
       </div>
 
