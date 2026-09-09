@@ -1,252 +1,313 @@
-    </div>
-  </div>
+:root {
+  --page-width: 900px;          /* Recommended max width */
+  --ink: #1d1d1f;
+  --muted: #646464;
+  --line: #dedede;
+  --page-background: #e9e9e9;
+  --card-background: #ffffff;
+  --accent: #205f88;
+  --header-bg: #ffffff;
+}
 
-  <!-- MAIN LAYOUT -->
-  <main class="layout">
+* {
+  box-sizing: border-box;
+}
 
-    <!-- ========================================================= -->
-    <!-- LEFT COLUMN (Quick Links, JMA, Trains, Airports, SOFA...) -->
-    <!-- ========================================================= -->
-    <div class="column column-left">
+html {
+  scroll-behavior: smooth;
+}
 
-      <section class="panel">
-        <h2 class="panel-title">Japan Meteorological Agency</h2>
-        <ul class="link-list">
-          <li><a href="https://www.jma.go.jp/bosai/#lang=en&pattern=forecast" target="_blank">Current Weather</a></li>
-          <li><a href="https://www.jma.go.jp/bosai/en_suikei/#lat:37.996163/lon:138.999023/zoom:5/colordepth:normal/elements:wthr" target="_blank">Radar Loop</a></li>
-          <li><a href="https://www.jma.go.jp/bosai/map.html#5/30.695/141.328/&elem=root&typhoon=all&contents=typhoon&lang=en" target="_blank">Tropical Cyclone Information</a></li>
-          <li><a href="https://www.jma.go.jp/bosai/map.html#5/34.5/137/&contents=forecast&lang=en" target="_blank">Japan Temps</a></li>
-          <li><a href="https://www.seatemperature.org/asia/japan/" target="_blank">Japan Water Temps</a></li>
-          <li><a href="#">Japan Maps</a></li>
-        </ul>
-      </section>
+body {
+  margin: 0;
+  background: var(--page-background);
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+}
 
-      <section class="panel">
-        <h2 class="panel-title">Trains/Shinkansen (Bullet)</h2>
-        <ul class="link-list">
-          <li><a href="https://japanrailpass.net/en/" target="_blank">Japan Rail Pass</a></li>
-          <li><a href="https://www.jreast.co.jp/en/multi/" target="_blank">East (Tokyo/Tohoku/Nagano)</a></li>
-          <li><a href="https://global.jr-central.co.jp/en/" target="_blank">Central (Nagoya/Kyoto/Osaka)</a></li>
-          <li><a href="https://www.westjr.co.jp/global/en/" target="_blank">West (Osaka/Kyoto/Hiroshima)</a></li>
-          <li><a href="https://www.jrkyushu.co.jp/english/" target="_blank">South (Kyushu)</a></li>
-          <li><a href="https://smart-ex.jp/en/" target="_blank">From Tokyo to Kyushu</a></li>
-          <li><a href="https://www.eki-net.com/en/jreast-train-reservation/Top/Index" target="_blank">EKI-Net (North of Tokyo)</a></li>
-        </ul>
-      </section>
+.page {
+  width: min(100%, var(--page-width));
+  min-height: 100vh;
+  margin: 0 auto;
+  background: var(--card-background);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.08);
+}
 
-      <section class="panel">
-        <h2 class="panel-title">Major Airports</h2>
-        <ul class="link-list">
-          <li><a href="https://tokyo-haneda.com/en/index.html" target="_blank">Tokyo (Haneda) International</a></li>
-          <li><a href="https://www.narita-airport.jp/en/" target="_blank">Tokyo (Narita) International</a></li>
-          <li><a href="https://www.centrair.jp/en/" target="_blank">Nagoya (Chubu) International</a></li>
-          <li><a href="https://www.kansai-airport.or.jp/en" target="_blank">Osaka (Kansai) International</a></li>
-          <li><a href="https://www.naha-airport.co.jp/en/" target="_blank">Okinawa (Naha) International</a></li>
-          <li><a href="https://www.osaka-airport.co.jp/en" target="_blank">Osaka (Itami) Domestic</a></li>
-        </ul>
-      </section>
+/* ==================== PREMIUM TOPBAR ==================== */
+.topbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px 14px;
+  background: var(--header-bg);
+  border-bottom: 1px solid var(--line);
+  position: relative;
+}
 
-      <section class="panel">
-        <h2 class="panel-title">SOFA Personnel Links</h2>
-        <ul class="link-list">
-          <li><a href="https://cnrj.cnic.navy.mil/Installations/CFA-Yokosuka/" target="_blank">CFA - Yokosuka</a></li>
-          <li><a href="https://cnrj.cnic.navy.mil/Installations/NAF-Misawa/" target="_blank">NAF - Misawa</a></li>
-          <li><a href="https://cnrj.cnic.navy.mil/Installations/CFA-Sasebo/" target="_blank">CFA - Sasebo</a></li>
-          <li><a href="https://www.mcbbutler.marines.mil/" target="_blank">Marine Corps Base Camp Butler</a></li>
-        </ul>
-      </section>
+/* subtle accent line */
+.topbar::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity: 0.75;
+}
 
-      <section class="panel">
-        <h2 class="panel-title">Restaurants</h2>
-        <ul class="link-list">
-          <li><a href="#">Recommended Places</a></li>
-          <li><a href="#">Restaurant Etiquette</a></li>
-          <li><a href="#">Menu Advice</a></li>
-          <li><a href="#">Understanding</a></li>
-          <li><a href="#">Japan</a></li>
-          <li><a href="#">Japan 2</a></li>
-        </ul>
-      </section>
+.topbar-logo {
+  flex: 0 0 auto;
+}
 
-      <!-- Search & Tools (moved inside left column) -->
-      <section class="panel">
-        <h2 class="panel-title">Search & Tools</h2>
+.navy-logo {
+  display: block;
+  max-height: 62px;
+  width: auto;
+  margin: 0 auto;
+  transition: transform 0.25s ease;
+}
 
-        <label class="field-label">Search the Gaijin Kudasai Portal</label>
-        <input type="text" class="field" placeholder="Search anything…">
-        <button class="btn-secondary">Search</button>
+.navy-logo:hover {
+  transform: scale(1.04);
+}
 
-        <label class="field-label">Search Wikipedia</label>
-        <input type="text" class="field" placeholder="Topic…">
+.topbar-content {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  gap: 20px;
+}
 
-        <label class="field-label">Stock Quotes</label>
-        <input type="text" class="field" placeholder="Symbol…">
-      </section>
+.topbar-left,
+.topbar-right {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.9rem;
+  line-height: 1.35;
+}
 
-    </div>
+.topbar-left {
+  text-align: left;
+}
 
+.topbar-right {
+  text-align: right;
+}
 
-    <!-- ========================================================= -->
-    <!-- CENTER COLUMN (Main Content) -->
-    <!-- ========================================================= -->
-    <div class="column column-center">
+.topbar-left .site-title,
+.topbar-right .site-title-right {
+  margin: 0;
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.3px;
+}
 
-      <section class="panel highlight">
-        <h2 class="panel-title">Have something to contribute to the website?</h2>
-        <p>
-          <strong>Gaijin (外人):</strong> A Japanese word meaning “outside person,” used for foreigners.<br><br>
-          <strong>Tradecraft (諜報技術):</strong> Specialized skills used in espionage.<br><br>
-          <strong>Gaijin Tradecraft:</strong> Blending into Japanese society through mimicry, conformity, and cultural awareness.
- common sense
-        </p>
-        <a href="https://www.japan.travel/en/us/" target="_blank" class="more-link">Visit site</a>
-      </section>
+.topbar-left .line2,
+.topbar-right .line2 {
+  color: var(--ink);
+  font-size: 0.87rem;
+  font-weight: 600;           /* made bold */
+}
 
-      <section class="panel">
-        <h2 class="panel-title">Manga and Anime quick links</h2>
-        <ul class="bullet-list">
-          <li><a href="#">Link 1</a></li>
-          <li><a href="#">Link 2</a></li>
-          <li><a href="#">Link 3</a></li>
-        </ul>
-        <a href="#" class="more-link">More Manga and Anime Sources</a>
-      </section>
+.live-date {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  color: var(--accent);
+  font-size: 0.86rem;
+  font-weight: 600;
+  margin-top: 4px;
+}
 
-      <section class="panel">
-        <h2 class="panel-title">Daily Diversions</h2>
-        <div class="tag-grid">
-          <a href="#" class="tag">Crosswords</a>
-          <a href="#" class="tag">Sudoku</a>
-          <a href="#" class="tag">Brain Teasers</a>
-          <a href="#" class="tag">Poetry</a>
-          <a href="#" class="tag">Games</a>
-          <a href="#" class="tag">Science Daily</a>
-        </div>
-      </section>
+/* ========== Desktop / wider screens ========== */
+@media (min-width: 620px) {
+  .topbar {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 16px 32px;
+  }
 
-    </div>
+  .topbar-logo {
+    order: 2;
+  }
 
+  .topbar-content {
+    display: contents;
+  }
 
-    <!-- ========================================================= -->
-    <!-- RIGHT COLUMN (News + Utility Panels) -->
-    <!-- ========================================================= -->
-    <div class="column column-right">
+  .topbar-left { order: 1; }
+  .topbar-right { order: 3; }
 
-      <section class="panel news-widget-panel">
-        <h2 class="panel-title">Latest Japanese Headlines</h2>
-        <select id="news-source-dropdown" class="field">
-          <option value="https://www.japantimes.co.jp/feed/" selected>The Japan Times</option>
-          <option value="https://www3.nhk.or.jp/rss/news/cat0.xml">NHK World Japan</option>
-          <option value="https://www.asahi.com/ajw/rss/ajw.xml">The Asahi Shimbun</option>
-          <option value="https://english.kyodonews.net/rss/news.xml">Kyodo News</option>
-        </select>
-        <div id="news-results"></div>
-      </section>
+  .navy-logo {
+    max-height: 68px;
+  }
 
-      <section class="panel">
-        <h2 class="panel-title">Gaijin Tradecraft</h2>
-        <ul class="link-list">
-          <li><a href="TheReality.html" target="_blank">The Reality (Read First)</a></li>
-          <li><a href="RestaurantRequirements.html" target="_blank">Restaurant Requirements</a></li>
-          <li><a href="PublicTransport.html" target="_blank">Public Transport</a></li>
-          <li><a href="BarEtiquette.html" target="_blank">Bar Etiquette</a></li>
-        </ul>
-      </section>
+  .topbar-left .site-title,
+  .topbar-right .site-title-right {
+    font-size: 1.15rem;
+  }
+}
 
-      <section class="panel">
-        <h2 class="panel-title">Look Up</h2>
-        <ul class="link-list">
-          <li><a href="#">People Finder</a></li>
-          <li><a href="#">White Pages</a></li>
-          <li><a href="#">Yellow Pages</a></li>
-          <li><a href="#">Driving Directions</a></li>
-        </ul>
-      </section>
+/* ========== Small phones ========== */
+@media (max-width: 380px) {
+  .topbar {
+    padding: 14px 16px 12px;
+  }
+  
+  .topbar-left .site-title,
+  .topbar-right .site-title-right {
+    font-size: 1rem;
+  }
+}
 
-      <section class="panel">
-        <h2 class="panel-title">Just for Fun</h2>
-        <ul class="link-list">
-          <li><a href="#">Jokes & Puns</a></li>
-          <li><a href="#">Online Games</a></li>
-          <li><a href="#">Optical Illusions</a></li>
-          <li><a href="#">Random Article</a></li>
-        </ul>
-      </section>
+/* ==================== REST OF STYLES ==================== */
+.map-section {
+  padding: 24px 20px;
+  border-bottom: 1px solid var(--line);
+}
 
-    </div>
+.map-section h1,
+.map-section h2 {
+  margin: 0 0 10px;
+  font-size: 1.8rem;
+}
 
-  </main>
+.map-section p {
+  margin: 0 0 20px;
+  color: var(--muted);
+  line-height: 1.55;
+}
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-links">
-      <a href="#">About</a>
-      <a href="#">Site Map</a>
-      <a href="#">Privacy</a>
-      <a href="#">Terms</a>
-      <a href="#">Contact</a>
-    </div>
-    <p class="footer-note">
-      Some sections may be hidden on small screens. © 2026 Reference Portal. External links are not endorsed.
-    </p>
-  </footer>
+.map-hotspot {
+  fill: #ffffff;
+  fill-opacity: 0.001;
+  stroke: none;
+  cursor: pointer;
+}
 
-  <!-- News Loader Script -->
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const dropdown = document.getElementById('news-source-dropdown');
-      const resultsContainer = document.getElementById('news-results');
-      const CORS_PROXY = "https://api.rss2json.com/v1/api.json?rss_url=";
+.map-hotspot:hover {
+  fill-opacity: 0.12;
+}
 
-      function fetchAndRenderFeed(rssUrl) {
-        if (!rssUrl) {
-          resultsContainer.innerHTML = '';
-          return;
-        }
+.map-hotspot:focus {
+  fill: #ffffff;
+  fill-opacity: 0.18;
+  stroke: #111111;
+  stroke-width: 3;
+  outline: none;
+}
 
-        resultsContainer.innerHTML = '<div class="news-loading">Loading top stories...</div>';
-        const apiUrl = CORS_PROXY + encodeURIComponent(rssUrl);
+.map-shell {
+  position: relative;
+  width: 100%;
+}
 
-        fetch(apiUrl)
-          .then(response => response.json())
-          .then(data => {
-            if (data.status === 'ok') {
-              const topArticles = data.items.slice(0, 10);
-              let htmlContent = '<ul class="news-articles-list" style="list-style:none; padding:0; margin:0;">';
+.map-shell > img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
 
-              topArticles.forEach(article => {
-                htmlContent += `
-                  <li style="margin: 6px 0; border-bottom: 1px solid #f0f0f0; padding-bottom: 4px;">
-                    <a href="${article.link}" target="_blank" rel="noopener noreferrer" class="news-link" style="text-decoration:none; color:#1f4f8f; font-size:0.9rem; word-break:break-word;">
-                      ${article.title}
-                    </a>
-                  </li>
-                `;
-              });
+.map-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
 
-              htmlContent += '</ul>';
-              resultsContainer.innerHTML = htmlContent;
-            } else {
-              resultsContainer.innerHTML = '<div class="news-error">Unable to load feed. Please try again.</div>';
-            }
-          })
-          .catch(error => {
-            console.error("Fetch error:", error);
-            resultsContainer.innerHTML = '<div class="news-error">Network error loading news.</div>';
-          });
-      }
+.region-list {
+  margin: 0;
+  padding: 0;
+}
 
-      dropdown.addEventListener('change', function() {
-        fetchAndRenderFeed(this.value);
-      });
+.region-card {
+  display: block;
+  min-height: 150px;
+  padding: 26px 22px;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+  text-decoration: none;
+}
 
-      if (dropdown.value) {
-        fetchAndRenderFeed(dropdown.value);
-      }
-    });
-  </script>
+.region-card:hover,
+.region-card:focus-visible {
+  background: #f3f6f8;
+}
 
-  <script src="header.js"></script>
+.region-card h2 {
+  margin: 0 0 8px;
+  font-size: 1.55rem;
+}
 
-</body>
-</html>
+.region-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.region-card .open-page {
+  display: inline-block;
+  margin-top: 14px;
+  color: var(--accent);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.region-hero {
+  padding: 18px;
+  border-bottom: 1px solid var(--line);
+}
+
+.region-hero h1 {
+  margin: 0 0 14px;
+  font-size: 1.8rem;
+}
+
+.region-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.content-section {
+  padding: 26px 22px;
+  border-bottom: 1px solid var(--line);
+}
+
+.content-section h2 {
+  margin: 0 0 10px;
+  font-size: 1.35rem;
+}
+
+.content-section p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.content-link {
+  display: inline-block;
+  margin-top: 14px;
+  color: var(--accent);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.content-link:hover,
+.content-link:focus-visible {
+  text-decoration: underline;
+}
+
+.site-footer {
+  padding: 22px;
+  color: var(--muted);
+  font-size: 0.85rem;
+  text-align: center;
+}
+style.css
+Displaying style.css.
