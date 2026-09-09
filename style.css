@@ -60,7 +60,7 @@ body {
   flex: 0 0 auto;
 }
 
-.navy-logo {
+.gaijin-logo {
   display: block;
   max-height: 62px;
   width: auto;
@@ -68,7 +68,7 @@ body {
   transition: transform 0.25s ease;
 }
 
-.navy-logo:hover {
+.gaijin-logo:hover {
   transform: scale(1.04);
 }
 
@@ -143,7 +143,7 @@ body {
   .topbar-left { order: 1; }
   .topbar-right { order: 3; }
 
-  .navy-logo {
+  .gaijin-logo {
     max-height: 68px;
   }
 
@@ -309,5 +309,4 @@ body {
   font-size: 0.85rem;
   text-align: center;
 }
-style.css
-Displaying style.css.
+
