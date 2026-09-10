@@ -1,5 +1,5 @@
 /* ============================================================
-GLOBAL VARIABLES
+GLOBAL
 ============================================================ */
 :root {
 --ink: #111;
@@ -9,9 +9,6 @@ GLOBAL VARIABLES
 --bg: #fafafa;
 }
 
-/* ============================================================
-PAGE LAYOUT
-============================================================ */
 body {
 margin: 0;
 font-family: system-ui, sans-serif;
@@ -26,60 +23,35 @@ padding: 20px;
 }
 
 /* ============================================================
-TOPBAR
+HEADER
 ============================================================ */
-.topbar {
-display: flex;
-align-items: center;
+.site-header {
 border-bottom: 1px solid var(--line);
 padding-bottom: 15px;
 margin-bottom: 20px;
 }
 
-.topbar-logo {
-margin-right: 20px;
-}
-
-.topbar-content {
-display: flex;
-justify-content: space-between;
-flex: 1;
-}
-
 .site-title {
-font-size: 1.4rem;
+font-size: 2rem;
 font-weight: 700;
+margin: 0;
 }
 
-.line2 {
-color: var(--muted);
-font-size: 0.9rem;
-}
-
-.site-title-right {
-font-size: 1.2rem;
-font-weight: 700;
-}
-
-.live-date {
-font-size: 0.85rem;
-color: var(--muted);
+.home-link {
+text-decoration: none;
+color: var(--ink);
 }
 
 /* ============================================================
-MAP SYSTEM
+MAP SECTION
 ============================================================ */
-.map-section {
-margin-bottom: 30px;
-}
-
-.map-title {
+.map-section h2 {
 font-size: 1.8rem;
 font-weight: 700;
 margin-bottom: 10px;
 }
 
-.map-description {
+.map-section p {
 color: var(--muted);
 margin-bottom: 20px;
 }
@@ -96,6 +68,9 @@ height: auto;
 display: block;
 }
 
+/* ============================================================
+SVG OVERLAY + HOTSPOTS
+============================================================ */
 .map-overlay {
 position: absolute;
 inset: 0;
@@ -121,139 +96,13 @@ stroke-width: 3;
 }
 
 /* ============================================================
-MODULE GRID
-============================================================ */
-.module-grid {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-gap: 20px;
-}
-
-.module-box {
-background: #fff;
-border: 1px solid var(--line);
-padding: 16px;
-border-radius: 8px;
-}
-
-.module-title {
-font-size: 1.2rem;
-font-weight: 700;
-margin-bottom: 12px;
-}
-
-.module-list {
-list-style: none;
-padding: 0;
-margin: 0;
-}
-
-.module-list li {
-margin-bottom: 10px;
-}
-
-.module-link {
-color: var(--accent);
-font-weight: 600;
-text-decoration: none;
-}
-
-.module-link:hover {
-text-decoration: underline;
-}
-
-.module-placeholder {
-color: var(--muted);
-font-size: 0.9rem;
-}
-
-/* ============================================================
-WEATHER MODULE
-============================================================ */
-.weather-summary {
-display: flex;
-flex-direction: column;
-gap: 4px;
-}
-
-.weather-main {
-display: flex;
-align-items: baseline;
-gap: 8px;
-}
-
-.weather-temp {
-font-size: 1.4rem;
-font-weight: 700;
-}
-
-.weather-cond {
-font-size: 0.95rem;
-color: var(--muted);
-}
-
-.weather-range {
-font-size: 0.85rem;
-color: var(--muted);
-display: flex;
-gap: 10px;
-}
-
-/* ============================================================
-MONETIZATION MODULES
-============================================================ */
-.mono {
-border-left: 4px solid var(--accent);
-padding-left: 16px;
-}
-
-.mono-transit {
-border-left-color: #2ea44f;
-}
-
-.mono-taxi {
-border-left-color: #f1c40f;
-}
-
-.mono-title {
-display: flex;
-align-items: center;
-gap: 8px;
-font-weight: 800;
-}
-
-.mono-icon {
-width: 18px;
-height: 18px;
-border-radius: 4px;
-}
-
-.mono-icon-transit {
-background: #2ea44f;
-}
-
-.mono-icon-taxi {
-background: #f1c40f;
-}
-
-.mono-list li {
-margin-bottom: 10px;
-}
-
-.mono-link {
-font-weight: 700;
-color: var(--accent);
-}
-
-/* ============================================================
 MOBILE
 ============================================================ */
 @media (max-width: 480px) {
-.module-title {
-font-size: 1.1rem;
+.site-title {
+font-size: 1.6rem;
 }
-.mono-icon {
-width: 16px;
-height: 16px;
+.map-section h2 {
+font-size: 1.5rem;
 }
 }
