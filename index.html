@@ -3,53 +3,44 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Interactive map and regional pages for Japan.">
+
+<meta
+name="description"
+content="Interactive map and regional pages for Japan.">
+
 <title>Japan Regions</title>
-<link rel="stylesheet" href="css/style.css">
+
+<!-- Corrected for new folder structure -->
+<link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
-
 <main class="page">
 
-<!-- ==================== TOPBAR ==================== -->
-<header class="topbar" id="global-header">
-
-<div class="topbar-logo">
-<a href="index.html">
-<img src="assets/logos/GK_logo1.png"
-alt="Gaijin logo"
-class="gaijin-logo"
-width="130"
-height="65">
-</a>
-</div>
-
-<div class="topbar-content">
-<div class="topbar-left">
-<div class="site-title">Gaijin, Kudasai / Gaijin, Please</div>
-<div class="line2">News • Sports • Weather • Tools • Facts</div>
-</div>
-
-<div class="topbar-right">
-<div class="site-title-right">Making life easier for Gaijin</div>
-<div class="line2">preparing to visit Japan.</div>
-<div class="live-date" id="live-date">—</div>
-</div>
-</div>
-
+<!-- Page header -->
+<header class="site-header">
+<h1 class="site-title">
+<a class="home-link" href="index.html">Japan Regions</a>
+</h1>
 </header>
 
-<!-- ==================== JAPAN MAP ==================== -->
+<!-- Japan map section -->
 <section class="map-section">
 <h2>Explore Japan</h2>
-<p>Select a region on the map to discover Japan.</p>
+
+<p>
+Select a region on the map or scroll down to open a regional page.
+</p>
 
 <div class="map-shell">
-<img src="maps/japan.webp"
-alt="Map of Japan showing major regions">
 
-<svg class="map-overlay"
+<!-- Updated for folder structure + WebP -->
+<img
+src="maps/japan.webp"
+alt="Map of Japan showing the regions Okinawa, Kyushu, Shikoku, Chugoku, Kansai, Chubu, Kanto, Tohoku, and Hokkaido.">
+
+<svg
+class="map-overlay"
 viewBox="0 0 100 100"
 preserveAspectRatio="none"
 aria-label="Interactive map of Japan"
@@ -131,42 +122,6 @@ points="54.29,8.19 68.86,8.19 69.14,11.52 54.29,11.52" />
 </div>
 </section>
 
-<!-- ==================== MODULE GRID (EMPTY FOR NOW) ==================== -->
-<section class="module-grid">
-<!-- Future boxes go here: RSS, Weather, Airports, Trains, SIM, Tools, etc. -->
-</section>
-
 </main>
-
-<!-- ==================== LIVE CLOCK ==================== -->
-<script>
-(function () {
-const el = document.getElementById("live-date");
-if (!el) return;
-
-const optsDate = { day: "2-digit", month: "long", year: "numeric" };
-const optsTime = { hour: "numeric", minute: "2-digit", hour12: true };
-
-function tick() {
-const now = new Date();
-const d = now.toLocaleDateString("en-US", optsDate).toUpperCase();
-const t = now.toLocaleTimeString("en-US", optsTime);
-el.textContent = `${d} : ${t}`;
-}
-
-tick();
-setInterval(tick, 1000);
-})();
-</script>
-
 </body>
 </html>
-``````html
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Interactive map and regional pages for Japan.">
-<title>Japan Regions</title>
-<link rel="stylesheet" href="css/styles.css">
