@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Interactive map and regional pages for Japan.">
 <title>Japan Regions</title>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -17,7 +17,7 @@
 
 <div class="topbar-logo">
 <a href="index.html">
-<img src="7.png"
+<img src="assets/logos/7.png"
 alt="Gaijin logo"
 class="gaijin-logo"
 width="130"
@@ -46,7 +46,7 @@ height="65">
 <p>Select a region on the map to discover Japan.</p>
 
 <div class="map-shell">
-<img src="Japan.png"
+<img src="maps/japan.webp"
 alt="Map of Japan showing major regions">
 
 <svg class="map-overlay"
@@ -56,7 +56,7 @@ aria-label="Interactive map of Japan"
 role="img">
 
 <!-- Okinawa -->
-<a href="okinawa.html" aria-label="Open Okinawa page">
+<a href="pages/regions/okinawa.html" aria-label="Open Okinawa page">
 <polygon class="map-hotspot"
 points="3.89,99.65 2.17,99.14 2.03,97.86 2.31,96.45 2.89,95.43 3.46,94.28 4.46,93.51 5.31,92.48 7.03,91.72 9.03,91.59 11.03,91.46 11.46,92.10 11.89,93.64 10.89,94.79 9.60,95.56 8.03,96.84 7.31,97.48 5.74,98.50" />
 <polygon class="map-hotspot"
@@ -64,7 +64,7 @@ points="2.74,86.47 14.74,86.59 14.60,99.52 1.74,99.91" />
 </a>
 
 <!-- Kyushu -->
-<a href="kyushu.html" aria-label="Open Kyushu page">
+<a href="pages/regions/kyushu.html" aria-label="Open Kyushu page">
 <polygon class="map-hotspot"
 points="29.14,63.75 30.86,64.65 32.43,64.52 32.71,65.68 33.71,66.96 33.57,68.36 32.57,69.39 31.71,70.92 31.43,72.59 31.00,74.25 30.00,75.15 28.14,75.92 26.57,75.02 26.57,73.23 26.43,71.44 26.71,70.16 25.57,69.13 24.00,68.36 23.57,67.08 23.71,66.06 25.14,65.16 26.57,64.52 27.57,63.63" />
 <polygon class="map-hotspot"
@@ -72,7 +72,7 @@ points="17.57,40.71 28.43,41.09 28.29,44.42 17.57,44.30" />
 </a>
 
 <!-- Shikoku -->
-<a href="shikoku.html" aria-label="Open Shikoku page">
+<a href="pages/regions/shikoku.html" aria-label="Open Shikoku page">
 <polygon class="map-hotspot"
 points="42.14,61.83 43.57,61.71 44.71,61.83 45.71,62.99 44.29,64.14 43.71,65.16 42.00,64.27 40.29,64.65 39.29,66.06 38.29,67.60 36.86,66.96 35.71,65.42 37.43,64.52 38.57,62.99 40.43,62.99" />
 <polygon class="map-hotspot"
@@ -80,7 +80,7 @@ points="33.86,76.68 46.29,76.94 46.29,79.89 33.71,80.01" />
 </a>
 
 <!-- Chugoku -->
-<a href="chugoku.html" aria-label="Open Chugoku page">
+<a href="pages/regions/chugoku.html" aria-label="Open Chugoku page">
 <polygon class="map-hotspot"
 points="30.00,61.58 31.71,62.09 33.71,61.71 34.86,62.09 35.86,59.91 37.43,60.43 39.14,59.66 40.86,59.40 42.86,59.15 43.57,58.63 43.57,57.23 43.86,56.20 42.43,55.82 40.86,56.07 39.00,55.95 31.86,60.68 33.43,59.66 35.00,58.51 36.43,57.23 37.57,56.07" />
 <polygon class="map-hotspot"
@@ -88,7 +88,7 @@ points="31.00,37.77 44.00,38.15 44.00,41.48 31.00,41.35" />
 </a>
 
 <!-- Kansai -->
-<a href="kansai.html" aria-label="Open Kansai page">
+<a href="pages/regions/kansai.html" aria-label="Open Kansai page">
 <polygon class="map-hotspot"
 points="46.00,58.51 46.29,56.97 46.71,55.05 48.29,55.56 49.86,56.59 52.00,56.59 53.43,55.82 54.57,57.48 54.14,59.27 55.29,60.55 53.43,61.32 52.43,62.47 51.43,64.01 49.57,63.63 48.86,62.35 47.43,61.32 46.29,60.30" />
 <polygon class="map-hotspot"
@@ -96,7 +96,7 @@ points="51.43,78.86 62.00,79.12 62.00,81.93 51.57,81.93" />
 </a>
 
 <!-- Chubu -->
-<a href="chubu.html" aria-label="Open Chubu page">
+<a href="pages/regions/chubu.html" aria-label="Open Chubu page">
 <polygon class="map-hotspot"
 points="51.14,54.92 52.29,53.38 53.43,51.72 54.86,50.44 55.86,48.39 55.86,46.86 57.57,45.83 58.86,44.42 60.14,43.53 61.43,42.63 63.14,41.86 64.57,41.74 66.14,41.22 68.00,40.71 68.14,42.50 67.00,44.30 65.71,46.22 64.57,47.75 62.43,48.90 62.57,50.95 63.29,52.87 64.57,54.41 65.43,56.33 65.43,58.76 64.00,59.40 62.00,59.40 59.29,59.15 57.43,58.89 56.71,57.23 56.00,55.56 54.86,54.15" />
 <polygon class="map-hotspot"
@@ -104,7 +104,7 @@ points="51.00,19.97 60.86,20.23 61.00,24.20 50.86,24.20" />
 </a>
 
 <!-- Kanto -->
-<a href="kanto.html" aria-label="Open Kanto page">
+<a href="pages/regions/kanto.html" aria-label="Open Kanto page">
 <polygon class="map-hotspot"
 points="64.57,49.93 66.29,49.03 68.43,48.90 70.29,48.26 72.29,49.42 74.29,49.54 74.43,51.21 74.29,53.00 73.86,54.79 73.14,56.33 71.57,57.61 69.43,57.48 68.14,56.84 67.14,55.82 68.00,53.90 66.57,53.00 65.29,51.72" />
 <polygon class="map-hotspot"
@@ -112,7 +112,7 @@ points="72.43,65.80 81.71,66.19 81.86,68.75 72.71,68.75" />
 </a>
 
 <!-- Tohoku -->
-<a href="tohoku.html" aria-label="Open Tohoku page">
+<a href="pages/regions/tohoku.html" aria-label="Open Tohoku page">
 <polygon class="map-hotspot"
 points="74.43,46.98 72.57,47.11 70.57,45.96 68.71,46.34 70.00,44.68 70.29,42.63 72.00,41.09 70.57,39.94 69.57,38.66 69.86,37.00 70.43,35.08 70.29,33.03 70.29,30.73 70.43,28.42 71.86,27.27 73.14,25.60 75.43,24.96 76.57,26.63 77.29,28.80 78.57,30.47 79.14,32.26 79.57,34.31 78.86,35.97 77.86,37.89 76.86,39.81 75.57,41.35 74.71,43.02 74.86,45.06" />
 <polygon class="map-hotspot"
@@ -120,7 +120,7 @@ points="79.14,46.09 90.29,45.96 90.57,48.65 79.71,48.65" />
 </a>
 
 <!-- Hokkaido -->
-<a href="hokkaido.html" aria-label="Open Hokkaido page">
+<a href="pages/regions/hokkaido.html" aria-label="Open Hokkaido page">
 <polygon class="map-hotspot"
 points="75.29,21.89 73.00,22.79 71.14,23.43 70.57,21.00 70.00,19.33 71.14,17.15 72.57,15.75 73.00,14.08 73.71,12.67 74.86,9.99 76.00,7.43 76.86,4.99 77.86,2.56 80.14,2.56 82.43,4.86 84.43,6.53 86.71,7.94 89.71,8.96 92.71,9.35 94.86,8.71 96.14,12.16 96.43,14.08 94.14,15.62 90.71,16.64 87.86,17.54 86.00,19.84 84.86,21.76 82.86,20.74 80.14,19.97 77.29,20.48" />
 <polygon class="map-hotspot"
@@ -161,3 +161,12 @@ setInterval(tick, 1000);
 
 </body>
 </html>
+``````html
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Interactive map and regional pages for Japan.">
+<title>Japan Regions</title>
+<link rel="stylesheet" href="css/styles.css">
