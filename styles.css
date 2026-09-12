@@ -96,11 +96,25 @@ stroke-width: 3;
 }
 
 /* ============================================================
+REGION SUBPAGES
+============================================================ */
+.region-hero {
+width: 100%;
+}
+
+.region-image {
+display: block;
+width: 100%;
+max-width: 100%;
+height: auto;
+}
+
+/* ============================================================
 MOBILE
 ============================================================ */
 @media (max-width: 480px) {
 .site-title {
-font-size: 1.6rem;
+font-size: 1.6rem; Ko
 }
 .map-section h2 {
 font-size: 1.5rem;
