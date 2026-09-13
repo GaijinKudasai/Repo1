@@ -78,8 +78,8 @@ HEADER
 ============================================================ */
 .site-header {
 border-bottom: 1px solid var(--line);
-padding-bottom: 15px;
-margin-bottom: 20px;
+padding-bottom: 10px;
+margin-bottom: 10px;
 }
 
 .site-title {
