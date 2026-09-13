@@ -3,11 +3,19 @@ GLOBAL
 ============================================================ */
 :root {
 --ink: #111;
---muted: #666;
---line: #ddd;
---accent: #0078ff;
---bg: #fafafa;
+--muted: #646464;
+--line: #dedede;
+--accent: #205f88;
+--bg: #ffffff;
 }
+* {
+box-sizing: border-box;
+}
+
+html {
+scroll-behavior: smooth;
+}
+
 
 body {
 margin: 0;
