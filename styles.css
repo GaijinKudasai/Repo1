@@ -31,64 +31,35 @@ padding: 20px;
 }
 
 /* ==================== TOPBAR ==================== */
+/* =======from here========== TOPBAR ==================== */
+
 .topbar {
-display: flex;
-flex-direction: column;
-align-items: center;
-gap: 12px;
-padding: 16px 20px 14px;
-background: var(--header-bg);
-border-bottom: 1px solid var(--line);
-position: relative;
+    width: 100%;
+    text-align: center;
 }
 
-.topbar::after {
-content: "";
-position: absolute;
-bottom: 0;
-left: 0;
-right: 0;
-height: 3px;
-background: linear-gradient(90deg, transparent, var(--accent), transparent);
-opacity: 0.75;
+/* Logo */
+.topbar-logo {
+    text-align: center;
+    margin-bottom: 10px;
 }
 
+.topbar-logo img {
+    display: block;
+    margin: 0 auto;
+}
+
+/* Five text lines */
 .topbar-content {
-display: flex;
-width: 100%;
-justify-content: space-between;
-gap: 20px;
+    width: 100%;
 }
 
-.topbar-left,
-.topbar-right {
-flex: 1 1 0;
-display: flex;
-flex-direction: column;
-gap: 4px;
-font-size: 0.9rem;
-line-height: 1.35;
+.topbar-line {
+    width: 100%;
+    margin: 0;
+    padding: 0;
 }
-
-.site-title,
-.site-title-right {
-margin: 0;
-font-size: 1.08rem;
-font-weight: 700;
-color: var(--ink);
-}
-
-.line2 {
-color: var(--ink);
-font-size: .86rem;
-font-weight: 600;
-}
-
-.line3 {
-color: var(--ink);
-font-size: .86rem;
-font-weight: 600;
-}
+/* to here for 5 straight lines/*
 
 .live-date {
 font-variant-numeric: tabular-nums;
