@@ -84,6 +84,12 @@ font-size: .86rem;
 font-weight: 600;
 }
 
+.line3 {
+color: var(--ink);
+font-size: .86rem;
+font-weight: 600;
+}
+
 .live-date {
 font-variant-numeric: tabular-nums;
 white-space: nowrap;
