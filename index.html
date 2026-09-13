@@ -195,5 +195,27 @@
     
 
   </main>
+  
+  <!-- ==================== LIVE CLOCK ==================== -->
+<script>
+(function () {
+const el = document.getElementById("live-date");
+if (!el) return;
+
+const optsDate = { day: "2-digit", month: "long", year: "numeric" };
+const optsTime = { hour: "numeric", minute: "2-digit", hour12: true };
+
+function tick() {
+const now = new Date();
+const d = now.toLocaleDateString("en-US", optsDate).toUpperCase();
+const t = now.toLocaleTimeString("en-US", optsTime);
+el.textContent = `${d} : ${t}`;
+}
+
+tick();
+setInterval(tick, 1000);
+})();
+</script>
+  
 </body>
 </html>
