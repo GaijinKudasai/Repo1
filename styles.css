@@ -30,6 +30,70 @@ margin: 0 auto;
 padding: 20px;
 }
 
+/* ==================== TOPBAR ==================== */
+.topbar {
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 12px;
+padding: 16px 20px 14px;
+background: var(--header-bg);
+border-bottom: 1px solid var(--line);
+position: relative;
+}
+
+.topbar::after {
+content: "";
+position: absolute;
+bottom: 0;
+left: 0;
+right: 0;
+height: 3px;
+background: linear-gradient(90deg, transparent, var(--accent), transparent);
+opacity: 0.75;
+}
+
+.topbar-content {
+display: flex;
+width: 100%;
+justify-content: space-between;
+gap: 20px;
+}
+
+.topbar-left,
+.topbar-right {
+flex: 1 1 0;
+display: flex;
+flex-direction: column;
+gap: 4px;
+font-size: 0.9rem;
+line-height: 1.35;
+}
+
+.site-title,
+.site-title-right {
+margin: 0;
+font-size: 1.08rem;
+font-weight: 700;
+color: var(--ink);
+}
+
+.line2 {
+color: var(--ink);
+font-size: 0.87rem;
+font-weight: 600;
+}
+
+.live-date {
+font-variant-numeric: tabular-nums;
+white-space: nowrap;
+color: var(--accent);
+font-size: 0.86rem;
+font-weight: 600;
+margin-top: 4px;
+}
+/* to here ####### /*
+
 /* ============================================================
 HEADER
 ============================================================ */
