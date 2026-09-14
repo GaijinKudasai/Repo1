@@ -6,7 +6,7 @@
 
   <meta
     name="description"
-    content="Interactive map and regional pages for Japan.">
+    content="Gaijin-san goes to Japan">
 
     <!-- styles.css must be in the same folder as this file -->
   <link rel="stylesheet" href="styles.css">
@@ -15,52 +15,61 @@
 <body>
   <main class="page">
 
-<!-- inserted here to last row ==================== TOPBAR ==================== -->
-<header class="topbar" id="global-header">
-<div class="topbar-logo">
+<!-- ==================== hero-section ==================== -->
+<header class="hero-section" id="global-header">
+
+<div class="hero-section-logo">
 <a href="index.html">
-<img src="/assets/logos/GK_logo1.png" alt="Gaijin logo" class="gaijin-logo" width="130" height="65">
+<img src="\assets\logos\GK_logo1.png"
+alt="gaijin logo"
+class="gaijin-logo"
+width="130"
+height="65"
+fetchpriority="high">
 </a>
 </div>
-  
-<div class="topbar-content">
-<div class="topbar-line line1" style="text-align: center; font-weight: bold;">
-Gaijin, Please     -     Gaijin, Kudasai
+
+<div class="hero-section-content">
+<div class="hero-section-left">
+<div class="site-title">Gaijin, Kudasai</div>
+<div class="line2">eSIM • Suica • Airports • Trains • Events</div>
 </div>
-<div class="topbar-line line2">News • Sports • Weather • Tools • Facts</div>
-<div class="topbar-line line3">Flights • eSIM • Transit Cards • Trains</div>
+
+<div class="hero-section-right">
+<div class="site-title-right">Japan, crystal clear</div>
+<div class="line2">News • Weather • Sports • Tools • Facts</div>
+<div>
 </div>
-<div class="topbar-line line4" style="text-align: center; font-weight: bold;">
-Japan, crystal clear for visiting Gaijin</div>
-</div>
-<div class="topbar-line line5" id="live-date">
-</div>
-</div>
+
 </header>
 
-<!-- last row inserted  -->
 
-    <title>Japan Regions</title>
-    <!-- Page header -->
-    <header class="site-header">
-      <h1 class="site-title">
-        <a class="home-link" href="index.html">Japan Regions</a>
-      </h1>
-    </header>
+<!-- ============utility bar (dual clocks) ======================-->
 
-    <!--================= Japan map section ====================== -->
+<nav class="utility-bar" aria-label="Regional Clocks">
+<div class="utility-inner">
+        <div class="clock-group">
+          <span class="clock-label">Tokyo:</span>
+          <time class="clock-time" id="clock-jst">--:--:--</time>
+        </div>
+        <div class="clock-group">
+          <span class="clock-label">Local:</span>
+          <time class="clock-time" id="clock-local">--:--:--</time>
+        </div>
+      </div>
+    </nav>
+
+<!-- ==================== JAPAN MAP ==================== -->
     <section class="map-section">
       <h2>Explore Japan</h2>
-
       <p>
         Select a region on the map to discover more.
       </p>
 
       <div class="map-shell">
-
         <!--
           This is the unchanged original map image.
-          Japan.png must be in the same folder as index.html.
+          Japan2.webp must be in the same folder as index.html.
         -->
         <img
           src="Japan2.webp"
@@ -194,29 +203,121 @@ Japan, crystal clear for visiting Gaijin</div>
 
     <!-- Regional subpage links -->
     
+<!-- ==================== MODULE GRID ==================== -->
+<section class="module-grid">
 
-  </main>
-  
-  <!-- ==================== LIVE CLOCK ==================== -->
+<!-- RSS NEWS -->
+<div class="module-box">
+<h3 class="module-title">Japan News</h3>
+<div class="module-content" id="rss-news">
+<p class="module-placeholder">RSS feed will load here.</p>
+</div>
+</div>
+
+<!-- WEATHER -->
+<div class="module-box">
+<h3 class="module-title">Weather Overview</h3>
+<div class="module-content" id="weather-box">
+<p class="module-placeholder">Weather data will load here.</p>
+</div>
+</div>
+
+<!-- TRAIN STATUS -->
+<div class="module-box">
+<h3 class="module-title">Train Status</h3>
+<div class="module-content" id="train-status">
+<p class="module-placeholder">Train updates will load here.</p>
+</div>
+</div>
+
+<!-- AIRPORT STATUS -->
+<div class="module-box">
+<h3 class="module-title">Airport Status</h3>
+<div class="module-content" id="airport-status">
+<p class="module-placeholder">Airport updates will load here.</p>
+</div>
+</div>
+
+<!-- SIM CARRIERS -->
+<div class="module-box">
+<h3 class="module-title">SIM & Mobile Carriers</h3>
+<ul class="module-list">
+<li><a href="#" class="module-link">Docomo</a></li>
+<li><a href="#" class="module-link">SoftBank</a></li>
+<li><a href="#" class="module-link">AU KDDI</a></li>
+<li><a href="#" class="module-link">Rakuten Mobile</a></li>
+</ul>
+</div>
+
+<!-- EVENTS -->
+<div class="module-box">
+<h3 class="module-title">Events in Japan</h3>
+<div class="module-content" id="events-box">
+<p class="module-placeholder">Event feed will load here.</p>
+</div>
+</div>
+
+<!-- Concerts -->
+<div class="module-box">
+<h3 class="module-title">Concerts in Japan</h3>
+<div class="module-content" id="concert-box">
+<p class="module-placeholder">Concert feed will load here.</p>
+</div>
+</div>
+
+<!-- REFERRAL LINKS -->
+<div class="module-box">
+<h3 class="module-title">Travel Tools & Deals</h3>
+<ul class="module-list">
+<li><a href="#" class="module-link">Book Flights</a></li>
+<li><a href="#" class="module-link">Hotels & Ryokan</a></li>
+<li><a href="#" class="module-link">Japan Rail Pass</a></li>
+<li><a href="#" class="module-link">SIM Cards & eSIM</a></li>
+</ul>
+</div>
+
+</section>
+
+</main>
+
+
+<!-- ==================== DUAL CLOCKS ==================== -->
 <script>
 (function () {
-const el = document.getElementById("live-date");
-if (!el) return;
+  const jstEl = document.getElementById("clock-jst");
+  const localEl = document.getElementById("clock-local");
 
-const optsDate = { day: "2-digit", month: "long", year: "numeric" };
-const optsTime = { hour: "numeric", minute: "2-digit", hour12: true };
+  // Safety check: if either is missing, exit
+  if (!jstEl || !localEl) return;
 
-function tick() {
-const now = new Date();
-const d = now.toLocaleDateString("en-US", optsDate).toUpperCase();
-const t = now.toLocaleTimeString("en-US", optsTime);
-el.textContent = `${d} : ${t}`;
-}
+  // Options for Tokyo (Japan Standard Time)
+  const jstOpts = {
+    timeZone: "Asia/Tokyo",
+    hour: "numeric",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: true
+  };
 
-tick();
-setInterval(tick, 1000);
+  // Options for User's Local Time (automatic)
+  const localOpts = {
+    hour: "numeric",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: true
+  };
+
+  function tick() {
+    const now = new Date();
+    jstEl.textContent = now.toLocaleTimeString("en-US", jstOpts);
+    localEl.textContent = now.toLocaleTimeString("en-US", localOpts);
+  }
+
+  tick();
+  setInterval(tick, 1000);
 })();
 </script>
-  
+
+
 </body>
 </html>
