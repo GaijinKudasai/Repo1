@@ -206,14 +206,26 @@ fetchpriority="high">
 <!-- ==================== MODULE GRID ==================== -->
 <section class="module-grid">
 
-<!-- RSS NEWS -->
-<div class="module-box">
-<h3 class="module-title">Japan News</h3>
-<div class="module-content" id="rss-news">
-<p class="module-placeholder">RSS feed will load here.</p>
-</div>
+<!-- =========================== RSS NEWS MODULE ================================= -->
+<div class="module-box news-widget-panel">
+  
+  <h3 class="module-title">Latest Japanese Headlines</h3>
+
+  <select id="news-source-dropdown" class="field">
+    <!-- The selected tag defaults to load first -->
+    <option value="https://www.japantimes.co.jp/feed/" selected>The Japan Times</option>
+    <option value="https://www3.nhk.or.jp/rss/news/cat0.xml">NHK World Japan</option>
+    <option value="https://www.asahi.com/ajw/rss/ajw.xml">The Asahi Shimbun</option>
+    <option value="https://english.kyodonews.net/rss/news.xml">Kyodo News</option>
+  </select>
+
+  <!-- This is where your fetched headlines will appear -->
+  <div id="news-results">
+    <p class="module-placeholder">Select a feed or wait for load...</p>
+  </div>
 </div>
 
+<!-- ======================New News Box Above=================================== -->
 <!-- WEATHER -->
 <div class="module-box">
 <h3 class="module-title">Weather Overview</h3>
@@ -317,7 +329,68 @@ fetchpriority="high">
   setInterval(tick, 1000);
 })();
 </script>
+<!---============End Dual Clocks======================--->
+  
+<!-- JavaScript to fetch and display top 3 articles (with auto-load on start) -->
 
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const dropdown = document.getElementById('news-source-dropdown');
+    const resultsContainer = document.getElementById('news-results');
 
+    // CORS helper proxy for reading XML cleanly inside the browser
+    const CORS_PROXY = "https://api.rss2json.com/v1/api.json?rss_url=";
+
+    function fetchAndRenderFeed(rssUrl) {
+      if (!rssUrl) {
+        resultsContainer.innerHTML = '';
+        return;
+      }
+
+      resultsContainer.innerHTML = '<div class="news-loading">Loading top stories...</div>';
+
+      const apiUrl = CORS_PROXY + encodeURIComponent(rssUrl);
+
+      fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+          if (data.status === 'ok') {
+            const topArticles = data.items.slice(0, 3);
+            let htmlContent = '<ul class="news-articles-list" style="list-style:none; padding:0; margin:0;">';
+
+            topArticles.forEach(article => {
+              htmlContent += `
+                <li style="margin: 6px 0; border-bottom: 1px solid #f0f0f0; padding-bottom: 4px;">
+                  <a href="${article.link}" target="_blank" rel="noopener noreferrer" class="news-link" style="text-decoration:none; color:#1f4f8f; font-size:0.9rem; word-break:break-word;">
+                    ${article.title}
+                  </a>
+                </li>
+              `;
+            });
+
+            htmlContent += '</ul>';
+            resultsContainer.innerHTML = htmlContent;
+          } else {
+            resultsContainer.innerHTML = '<div class="news-error">Unable to load feed. Please try again.</div>';
+          }
+        })
+        .catch(error => {
+          console.error("Fetch error:", error);
+          resultsContainer.innerHTML = '<div class="news-error">Network error loading news.</div>';
+        });
+    }
+
+    // Trigger on change
+    dropdown.addEventListener('change', function() {
+      fetchAndRenderFeed(this.value);
+    });
+
+    // TRIGGER AUTO-LOAD ON WEBPAGE LAUNCH
+    if (dropdown.value) {
+      fetchAndRenderFeed(dropdown.value);
+    }
+  });
+</script>
+  
 </body>
 </html>
