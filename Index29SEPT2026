@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta
+    name="description"
+    content="Gaijin-san goes to Japan">
+
+    <!-- styles.css must be in the same folder as this file -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <main class="page">
+
+<!-- ==================== hero-section ==================== -->
+<header class="hero-section" id="global-header">
+
+<div class="hero-section-logo">
+<a href="index.html">
+<img src="\assets\logos\GK_logo1.png"
+alt="gaijin logo"
+class="gaijin-logo"
+width="130"
+height="65"
+fetchpriority="high">
+</a>
+</div>
+
+<div class="hero-section-content">
+<div class="hero-section-left">
+<div class="site-title">Gaijin, Kudasai</div>
+<div class="line2">eSIM • Suica • Airports • Trains • Events</div>
+</div>
+
+<div class="hero-section-right">
+<div class="site-title-right">Japan, crystal clear</div>
+<div class="line2">News • Weather • Sports • Tools • Facts</div>
+<div>
+</div>
+
+</header>
+
+
+<!-- ============utility bar (dual clocks) ======================-->
+
+<nav class="utility-bar" aria-label="Regional Clocks">
+<div class="utility-inner">
+        <div class="clock-group">
+          <span class="clock-label">Japan:</span>
+          <time class="clock-time" id="clock-jst">--:--:--</time>
+        </div>
+        <div class="clock-group">
+          <span class="clock-label">Local:</span>
+          <time class="clock-time" id="clock-local">--:--:--</time>
+        </div>
+      </div>
+    </nav>
+
+<!-- ==================== JAPAN MAP ==================== -->
+    <section class="map-section">
+      <h2>Explore Japan</h2>
+      <p>
+        Select a colored region on the map or city name to discover more.
+      </p>
+
+      <div class="map-shell">
+        <!--
+          This is the unchanged original map image.
+          Japan2.webp must be in the same folder as index.html.
+        -->
+        <img
+          src="Japan2.webp"
+          alt="Map of Japan showing the regions Okinawa, Kyushu, Shikoku, Chugoku, Kansai, Chubu, Kanto, Tohoku, and Hokkaido.">
+
+        <!--
+          This empty SVG sits invisibly over the map.
+
+          The map will display now. Region-specific clickable areas can be
+          added inside this SVG once the correct region and label coordinates
+          are traced.
+        -->
+<svg
+  class="map-overlay"
+  viewBox="0 0 100 100"
+  preserveAspectRatio="none"
+  aria-label="Interactive map of Japan"
+  role="img">
+  
+  
+<!-- Hokkaido -->
+  <a href="pages\regions\hokkaido.html" aria-label="Open Hokkaido page">
+      <polygon
+    class="map-hotspot"
+    points="79.21,1.16 91.64,10.59 96.79,9.30 98.64,14.98 88.79,19.37 86.36,24.14 77.93,19.62 75.36,24.66 69.36,25.95 69.50,18.98 76.64,13.94 78.36,4.91" />
+  <!-- Clickable printed word: Hokkaido -->
+  <polygon
+    class="map-hotspot"
+    points="61.60,8.62 61.74,10.82 74.74,10.95 74.31,8.37" />
+  </a>
+
+ <!-- Tohoku -->
+  <a href="pages\regions\tohoku.html" aria-label="Open Tohoku page">
+      <polygon
+    class="map-hotspot"
+    points="70.74,28.46 76.74,27.42 79.31,38.27 76.89,46.01 74.46,53.63 66.46,52.34 69.46,46.53 67.89,43.43 69.60,36.07 70.31,32.07" />
+
+  <!-- Clickable printed word: Tohoku -->
+  <polygon
+    class="map-hotspot"
+    points="81.17,37.49 81.46,39.95 91.89,40.07 91.46,37.49" />
+  </a>
+
+<!-- Chubu -->
+  <a href="pages\regions\chubu.html" aria-label="Open Chubu page">
+     <polygon
+    class="map-hotspot"
+    points="65.89,47.56 67.46,49.11 64.31,51.05 62.46,54.79 60.17,56.86 64.89,66.41 54.31,67.70 49.46,58.92 56.46,53.89 61.17,46.53" />
+
+  <!-- Clickable printed word: Chubu -->
+  <polygon
+    class="map-hotspot"
+    points="45.60,45.50 45.31,48.08 54.74,48.21 54.60,45.63" />
+  </a>
+
+   <!-- Kanto -->
+  <a href="pages\regions\kanto.html" aria-label="Open Kanto page">
+     <polygon
+    class="map-hotspot"
+    points="64.60,54.66 69.03,54.53 72.89,55.57 73.60,60.99 68.89,65.90 65.31,63.44 65.17,60.60 62.74,56.99" />
+
+  <!-- Clickable printed word: Kanto -->
+  <polygon
+    class="map-hotspot"
+    points="75.74,57.38 76.03,60.09 84.31,60.34 83.89,57.38" />
+  </a>
+
+ <!-- Kansai -->
+  <a href="pages\regions\kansai.html" aria-label="Open Kansai page">
+      <polygon
+    class="map-hotspot"
+    points="43.17,61.89 47.17,64.61 50.46,65.64 52.74,69.12 47.46,73.38 43.31,67.32 41.60,66.15 42.17,63.57" />
+
+  <!-- Clickable printed word: Kansai -->
+  <polygon
+    class="map-hotspot"
+    points="51.31,71.45 60.60,71.58 60.74,73.90 51.31,73.64" />
+  </a>
+
+ <!-- Chugoku -->
+  <a href="pages\regions\chugoku.html" aria-label="Open Chugoku page">
+     <polygon
+    class="map-hotspot"
+    points="39.46,62.02 38.74,67.70 28.46,71.32 22.31,69.25 33.74,60.60" />
+
+  <!-- Clickable printed word: Chugoku -->
+  <polygon
+    class="map-hotspot"
+    points="15.60,53.76 15.46,56.34 27.89,56.34 27.89,53.50" />
+  </a>
+
+<!-- Shikoku -->
+<a href="pages\regions\shikoku.html" aria-label="Open Shikoku page">
+  <polygon
+    class="map-hotspot"
+    points="38.74,68.99 42.03,71.71 39.31,74.55 33.60,75.06 32.46,77.52 29.74,73.38 33.46,70.80" />
+
+  <!-- Clickable printed word: Shikoku -->
+  <polygon
+    class="map-hotspot"
+    points="35.60,82.03 35.31,84.36 47.03,84.23 46.74,82.16" />
+</a>
+
+<!-- Kyushu -->
+<a href="pages\regions\kyushu.html" aria-label="Open Kyushu page">
+  <polygon
+    class="map-hotspot"
+    points="21.46,71.32 28.03,77.26 21.89,87.33 18.46,85.26 20.60,79.32 15.60,74.93" />
+
+  <!-- Clickable printed word: Kyushu -->
+  <polygon
+    class="map-hotspot"
+    points="7.31,81.13 17.46,81.65 17.60,83.84 7.31,83.71" />
+</a>
+
+   <!-- Okinawa: colored area and printed word -->
+<a href="pages\regions\okinawa.html" aria-label="Open Okinawa page">
+  <polygon
+    class="map-hotspot"
+    points="11.46,89.14 14.17,90.56 11.31,93.27 8.31,95.59 7.03,94.17" />
+
+  <!-- Clickable printed word: Okinawa -->
+  <polygon
+    class="map-hotspot"
+    points="10.89,94.30 22.74,94.82 22.60,97.27 10.60,96.75" />
+</a>
+
+</svg>
+      </div>
+    </section>
+
+    <!-- Regional subpage links -->
+    
+<!-- ==================== MODULE GRID ==================== -->
+<section class="module-grid">
+
+<!-- =========================== RSS NEWS MODULE ================================= -->
+<div class="module-box news-widget-panel">
+  
+  <h3 class="module-title">Latest Japanese Headlines</h3>
+
+  <select id="news-source-dropdown" class="field">
+    <!-- The selected tag defaults to load first -->
+    <option value="https://www.japantimes.co.jp/feed/" selected>The Japan Times</option>
+    <option value="https://www3.nhk.or.jp/rss/news/cat0.xml">NHK World Japan</option>
+    <option value="https://www.asahi.com/ajw/rss/ajw.xml">The Asahi Shimbun</option>
+    <option value="https://english.kyodonews.net/rss/news.xml">Kyodo News</option>
+  </select>
+
+  <!-- This is where your fetched headlines will appear -->
+  <div id="news-results">
+    <p class="module-placeholder">Select a feed or wait for load...</p>
+  </div>
+</div>
+
+<!-- ======================New News Box Above=================================== -->
+<!-- WEATHER -->
+<div class="module-box">
+<h3 class="module-title">Weather Overview</h3>
+<div class="module-content" id="weather-box">
+<p class="module-placeholder">Weather data will load here.</p>
+</div>
+</div>
+
+<!-- TRAIN STATUS -->
+<div class="module-box">
+<h3 class="module-title">Train Status</h3>
+<div class="module-content" id="train-status">
+<p class="module-placeholder">Train updates will load here.</p>
+</div>
+</div>
+
+<!-- AIRPORT STATUS -->
+<div class="module-box">
+<h3 class="module-title">Airport Status</h3>
+<div class="module-content" id="airport-status">
+<p class="module-placeholder">Airport updates will load here.</p>
+</div>
+</div>
+
+<!-- SIM CARRIERS -->
+<div class="module-box">
+<h3 class="module-title">SIM & Mobile Carriers</h3>
+<ul class="module-list">
+<li><a href="#" class="module-link">Docomo</a></li>
+<li><a href="#" class="module-link">SoftBank</a></li>
+<li><a href="#" class="module-link">AU KDDI</a></li>
+<li><a href="#" class="module-link">Rakuten Mobile</a></li>
+</ul>
+</div>
+
+<!-- EVENTS -->
+<div class="module-box">
+<h3 class="module-title">Events in Japan</h3>
+<div class="module-content" id="events-box">
+<p class="module-placeholder">Event feed will load here.</p>
+</div>
+</div>
+
+<!-- Concerts -->
+<div class="module-box">
+<h3 class="module-title">Concerts in Japan</h3>
+<div class="module-content" id="concert-box">
+<p class="module-placeholder">Concert feed will load here.</p>
+</div>
+</div>
+
+<!-- REFERRAL LINKS -->
+<div class="module-box">
+<h3 class="module-title">Travel Tools & Deals</h3>
+<ul class="module-list">
+<li><a href="#" class="module-link">Book Flights</a></li>
+<li><a href="#" class="module-link">Hotels & Ryokan</a></li>
+<li><a href="#" class="module-link">Japan Rail Pass</a></li>
+<li><a href="#" class="module-link">SIM Cards & eSIM</a></li>
+</ul>
+</div>
+
+</section>
+
+</main>
+
+
+<!-- ==================== DUAL CLOCKS ==================== -->
+<script>
+(function () {
+  const jstEl = document.getElementById("clock-jst");
+  const localEl = document.getElementById("clock-local");
+
+  // Safety check: if either is missing, exit
+  if (!jstEl || !localEl) return;
+
+  // Options for Tokyo (Japan Standard Time)
+  const jstOpts = {
+    timeZone: "Asia/Tokyo",
+    hour: "numeric",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: true
+  };
+
+  // Options for User's Local Time (automatic)
+  const localOpts = {
+    hour: "numeric",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: true
+  };
+
+  function tick() {
+    const now = new Date();
+    jstEl.textContent = now.toLocaleTimeString("en-US", jstOpts);
+    localEl.textContent = now.toLocaleTimeString("en-US", localOpts);
+  }
+
+  tick();
+  setInterval(tick, 1000);
+})();
+</script>
+<!---============End Dual Clocks======================--->
+  
+<!-- JavaScript to fetch and display top 3 articles (with auto-load on start) -->
+
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const dropdown = document.getElementById('news-source-dropdown');
+    const resultsContainer = document.getElementById('news-results');
+
+    // CORS helper proxy for reading XML cleanly inside the browser
+    const CORS_PROXY = "https://api.rss2json.com/v1/api.json?rss_url=";
+
+    function fetchAndRenderFeed(rssUrl) {
+      if (!rssUrl) {
+        resultsContainer.innerHTML = '';
+        return;
+      }
+
+      resultsContainer.innerHTML = '<div class="news-loading">Loading top stories...</div>';
+
+      const apiUrl = CORS_PROXY + encodeURIComponent(rssUrl);
+
+      fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+          if (data.status === 'ok') {
+            const topArticles = data.items.slice(0, 3);
+            let htmlContent = '<ul class="news-articles-list" style="list-style:none; padding:0; margin:0;">';
+
+            topArticles.forEach(article => {
+              htmlContent += `
+                <li style="margin: 6px 0; border-bottom: 1px solid #f0f0f0; padding-bottom: 4px;">
+                  <a href="${article.link}" target="_blank" rel="noopener noreferrer" class="news-link" style="text-decoration:none; color:#1f4f8f; font-size:0.9rem; word-break:break-word;">
+                    ${article.title}
+                  </a>
+                </li>
+              `;
+            });
+
+            htmlContent += '</ul>';
+            resultsContainer.innerHTML = htmlContent;
+          } else {
+            resultsContainer.innerHTML = '<div class="news-error">Unable to load feed. Please try again.</div>';
+          }
+        })
+        .catch(error => {
+          console.error("Fetch error:", error);
+          resultsContainer.innerHTML = '<div class="news-error">Network error loading news.</div>';
+        });
+    }
+
+    // Trigger on change
+    dropdown.addEventListener('change', function() {
+      fetchAndRenderFeed(this.value);
+    });
+
+    // TRIGGER AUTO-LOAD ON WEBPAGE LAUNCH
+    if (dropdown.value) {
+      fetchAndRenderFeed(dropdown.value);
+    }
+  });
+</script>
+  
+</body>
+</html>
