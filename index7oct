@@ -1,0 +1,843 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="description" content="A Practice HTML and CSS website.">
+
+<title>Gaijin Kudasai</title>
+
+<link rel="stylesheet" href="styles.css">
+
+<script>
+
+if (localStorage.getItem("theme") === "dark") {
+
+  document.documentElement.classList.add("dark-mode");
+
+}
+
+</script>
+
+</head>
+
+ 
+
+<body>
+
+ 
+
+<main class="page">
+
+ 
+
+<!-- ==================== hero-section ==================== -->
+
+<header class="hero-section" id="global-header">
+
+ 
+
+<div class="hero-section-logo">
+
+<a href="index.html">
+
+<img src="gaijinkudasailogo.webp"
+
+alt="gaijin logo"
+
+class="gaijin-logo"
+
+width="130"
+
+height="65"
+
+fetchpriority="high">
+
+</a>
+
+</div>
+
+ 
+
+<div class="hero-section-content">
+
+<div class="hero-section-left">
+
+<div class="site-title">Practice Website</div>
+
+<div class="line2">eSIM • Suica • Weather • Tools • Facts</div>
+
+</div>
+
+ 
+
+<div class="hero-section-right">
+
+<div class="site-title-right">Learning HTML and CSS</div>
+
+<div class="line2">placeholder</div>
+
+<div>
+
+</div>
+
+ 
+
+</header>
+
+ 
+
+ 
+
+<!-- ============utility bar (dual clocks) ======================-->
+
+ 
+
+<nav class="utility-bar" aria-label="Regional Clocks">
+
+<div class="utility-inner">
+
+        <div class="clock-group">
+
+          <span class="clock-label">Tokyo:</span>
+
+          <time class="clock-time" id="clock-jst">--:--:--</time>
+
+        </div>
+
+        <div class="clock-group">
+
+          <span class="clock-label">Local:</span>
+
+          <time class="clock-time" id="clock-local">--:--:--</time>
+
+        </div>
+
+            <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Switch to dark mode">Dark</button>
+
+      </div>
+
+    </nav>
+
+ 
+
+<!-- ==================== JAPAN MAP ==================== -->
+
+<section class="map-section">
+
+<h2>Explore Japan</h2>
+
+<p>Select a region on the map to discover Japan.</p>
+
+ 
+
+<div class="map-shell">
+
+<img src="Japan2.png"
+
+alt="Map of Japan showing major regions">
+
+ 
+
+<svg class="map-overlay"
+
+viewBox="0 0 100 100"
+
+preserveAspectRatio="none"
+
+aria-label="Interactive map of Japan"
+
+role="img">
+
+ 
+
+          <!-- Okinawa -->
+
+          <a href="okinawa.html" aria-label="Open Okinawa page">
+
+            <polygon class="map-hotspot"
+
+              points="3.89,99.65 2.17,99.14 2.03,97.86 2.31,96.45 2.89,95.43 3.46,94.28 4.46,93.51 5.31,92.48 7.03,91.72 9.03,91.59 11.03,91.46 11.46,92.10 11.89,93.64 10.89,94.79 9.60,95.56 8.03,96.84 7.31,97.48 5.74,98.50" />
+
+            <polygon class="map-hotspot"
+
+              points="2.74,86.47 14.74,86.59 14.60,99.52 1.74,99.91" />
+
+          </a>
+
+ 
+
+          <!-- Kyushu -->
+
+          <a href="kyushu.html" aria-label="Open Kyushu page">
+
+            <polygon class="map-hotspot"
+
+              points="29.14,63.75 30.86,64.65 32.43,64.52 32.71,65.68 33.71,66.96 33.57,68.36 32.57,69.39 31.71,70.92 31.43,72.59 31.00,74.25 30.00,75.15 28.14,75.92 26.57,75.02 26.57,73.23 26.43,71.44 26.71,70.16 25.57,69.13 24.00,68.36 23.57,67.08 23.71,66.06 25.14,65.16 26.57,64.52 27.57,63.63" />
+
+            <polygon class="map-hotspot"
+
+              points="17.57,40.71 28.43,41.09 28.29,44.42 17.57,44.30" />
+
+          </a>
+
+ 
+
+          <!-- Shikoku -->
+
+          <a href="shikoku.html" aria-label="Open Shikoku page">
+
+            <polygon class="map-hotspot"
+
+              points="42.14,61.83 43.57,61.71 44.71,61.83 45.71,62.99 44.29,64.14 43.71,65.16 42.00,64.27 40.29,64.65 39.29,66.06 38.29,67.60 36.86,66.96 35.71,65.42 37.43,64.52 38.57,62.99 40.43,62.99" />
+
+            <polygon class="map-hotspot"
+
+              points="33.86,76.68 46.29,76.94 46.29,79.89 33.71,80.01" />
+
+          </a>
+
+ 
+
+          <!-- Chugoku -->
+
+          <a href="chugoku.html" aria-label="Open Chugoku page">
+
+            <polygon class="map-hotspot"
+
+              points="30.00,61.58 31.71,62.09 33.71,61.71 34.86,62.09 35.86,59.91 37.43,60.43 39.14,59.66 40.86,59.40 42.86,59.15 43.57,58.63 43.57,57.23 43.86,56.20 42.43,55.82 40.86,56.07 39.00,55.95 31.86,60.68 33.43,59.66 35.00,58.51 36.43,57.23 37.57,56.07" />
+
+            <polygon class="map-hotspot"
+
+              points="31.00,37.77 44.00,38.15 44.00,41.48 31.00,41.35" />
+
+          </a>
+
+ 
+
+          <!-- Kansai -->
+
+          <a href="kansai.html" aria-label="Open Kansai page">
+
+            <polygon class="map-hotspot"
+
+              points="46.00,58.51 46.29,56.97 46.71,55.05 48.29,55.56 49.86,56.59 52.00,56.59 53.43,55.82 54.57,57.48 54.14,59.27 55.29,60.55 53.43,61.32 52.43,62.47 51.43,64.01 49.57,63.63 48.86,62.35 47.43,61.32 46.29,60.30" />
+
+            <polygon class="map-hotspot"
+
+              points="51.43,78.86 62.00,79.12 62.00,81.93 51.57,81.93" />
+
+          </a>
+
+ 
+
+          <!-- Chubu -->
+
+          <a href="chubu.html" aria-label="Open Chubu page">
+
+            <polygon class="map-hotspot"
+
+              points="51.14,54.92 52.29,53.38 53.43,51.72 54.86,50.44 55.86,48.39 55.86,46.86 57.57,45.83 58.86,44.42 60.14,43.53 61.43,42.63 63.14,41.86 64.57,41.74 66.14,41.22 68.00,40.71 68.14,42.50 67.00,44.30 65.71,46.22 64.57,47.75 62.43,48.90 62.57,50.95 63.29,52.87 64.57,54.41 65.43,56.33 65.43,58.76 64.00,59.40 62.00,59.40 59.29,59.15 57.43,58.89 56.71,57.23 56.00,55.56 54.86,54.15" />
+
+            <polygon class="map-hotspot"
+
+              points="51.00,19.97 60.86,20.23 61.00,24.20 50.86,24.20" />
+
+          </a>
+
+ 
+
+          <!-- Kanto -->
+
+          <a href="kanto.html" aria-label="Open Kanto page">
+
+            <polygon class="map-hotspot"
+
+              points="64.57,49.93 66.29,49.03 68.43,48.90 70.29,48.26 72.29,49.42 74.29,49.54 74.43,51.21 74.29,53.00 73.86,54.79 73.14,56.33 71.57,57.61 69.43,57.48 68.14,56.84 67.14,55.82 68.00,53.90 66.57,53.00 65.29,51.72" />
+
+            <polygon class="map-hotspot"
+
+              points="72.43,65.80 81.71,66.19 81.86,68.75 72.71,68.75" />
+
+          </a>
+
+ 
+
+          <!-- Tohoku -->
+
+          <a href="tohoku.html" aria-label="Open Tohoku page">
+
+            <polygon class="map-hotspot"
+
+              points="74.43,46.98 72.57,47.11 70.57,45.96 68.71,46.34 70.00,44.68 70.29,42.63 72.00,41.09 70.57,39.94 69.57,38.66 69.86,37.00 70.43,35.08 70.29,33.03 70.29,30.73 70.43,28.42 71.86,27.27 73.14,25.60 75.43,24.96 76.57,26.63 77.29,28.80 78.57,30.47 79.14,32.26 79.57,34.31 78.86,35.97 77.86,37.89 76.86,39.81 75.57,41.35 74.71,43.02 74.86,45.06" />
+
+            <polygon class="map-hotspot"
+
+              points="79.14,46.09 90.29,45.96 90.57,48.65 79.71,48.65" />
+
+          </a>
+
+ 
+
+          <!-- Hokkaido -->
+
+          <a href="hokkaido.html" aria-label="Open Hokkaido page">
+
+            <polygon class="map-hotspot"
+
+              points="75.29,21.89 73.00,22.79 71.14,23.43 70.57,21.00 70.00,19.33 71.14,17.15 72.57,15.75 73.00,14.08 73.71,12.67 74.86,9.99 76.00,7.43 76.86,4.99 77.86,2.56 80.14,2.56 82.43,4.86 84.43,6.53 86.71,7.94 89.71,8.96 92.71,9.35 94.86,8.71 96.14,12.16 96.43,14.08 94.14,15.62 90.71,16.64 87.86,17.54 86.00,19.84 84.86,21.76 82.86,20.74 80.14,19.97 77.29,20.48" />
+
+            <polygon class="map-hotspot"
+
+              points="54.29,8.19 68.86,8.19 69.14,11.52 54.29,11.52" />
+
+          </a>
+
+             
+
+              <!-- ==================== ENTER POINTS 2 HERE==================== -->
+
+             
+
+              
+
+        </svg>
+
+      </div>
+
+    </section>
+
+ 
+
+ 
+
+<!-- ==================== MODULE GRID ==================== -->
+
+<section class="module-grid">
+
+ 
+
+<!-- =========================== RSS NEWS MODULE ================================= -->
+
+ 
+
+<div class="module-box news-widget-panel">
+
+ 
+
+  <h3 class="module-title">Latest Japanese Headlines</h3>
+
+ 
+
+  <select id="news-source-dropdown" class="field">
+
+    <!-- The selected tag defaults to load first -->
+
+    <option value=https://www.japantimes.co.jp/feed/ selected>The Japan Times</option>
+
+    <option value=https://www3.nhk.or.jp/rss/news/cat0.xml>NHK World Japan</option>
+
+    <option value=https://www.asahi.com/ajw/rss/ajw.xml>The Asahi Shimbun</option>
+
+    <option value=https://english.kyodonews.net/rss/news.xml>Kyodo News</option>
+
+  </select>
+
+ 
+
+  <!-- This is where your fetched headlines will appear -->
+
+  <div id="news-results">
+
+    <p class="module-placeholder">Select a feed or wait for load...</p>
+
+  </div>
+
+</div>
+
+ 
+
+<!-- ======================New News Box Above=================================== -->
+
+ 
+
+<!-- WEATHER -->
+
+<div class="module-box">
+
+<h3 class="module-title">Weather Overview</h3>
+
+<div class="module-content" id="weather-box">
+
+<p class="module-placeholder">Weather data will load here.</p>
+
+</div>
+
+</div>
+
+ 
+
+<!-- TRAIN STATUS -->
+
+<div class="module-box">
+
+<h3 class="module-title">Train Status</h3>
+
+<div class="module-content" id="train-status">
+
+<p class="module-placeholder">Train updates will load here.</p>
+
+</div>
+
+</div>
+
+ 
+
+<!-- AIRPORT STATUS -->
+
+<div class="module-box">
+
+<h3 class="module-title">Airport Status</h3>
+
+<div class="module-content" id="airport-status">
+
+<p class="module-placeholder">Airport updates will load here.</p>
+
+</div>
+
+</div>
+
+ 
+
+<!-- SIM CARRIERS -->
+
+<div class="module-box">
+
+<h3 class="module-title">SIM & Mobile Carriers</h3>
+
+<ul class="module-list">
+
+<li><a href="#" class="module-link">Docomo</a></li>
+
+<li><a href="#" class="module-link">SoftBank</a></li>
+
+<li><a href="#" class="module-link">AU KDDI</a></li>
+
+<li><a href="#" class="module-link">Rakuten Mobile</a></li>
+
+</ul>
+
+</div>
+
+ 
+
+<!-- EVENTS -->
+
+<div class="module-box">
+
+<h3 class="module-title">Events in Japan</h3>
+
+<div class="module-content" id="events-box">
+
+<p class="module-placeholder">Event feed will load here.</p>
+
+</div>
+
+</div>
+
+ 
+
+<!-- Concerts -->
+
+<div class="module-box">
+
+<h3 class="module-title">Concerts in Japan</h3>
+
+<div class="module-content" id="concert-box">
+
+<p class="module-placeholder">Concert feed will load here.</p>
+
+</div>
+
+</div>
+
+ 
+
+<!-- REFERRAL LINKS -->
+
+<div class="module-box">
+
+<h3 class="module-title">Travel Tools and Deals</h3>
+
+<ul class="module-list">
+
+<li><a href="#" class="module-link">Book Flights</a></li>
+
+<li><a href="#" class="module-link">Hotels & Ryokan</a></li>
+
+<li><a href="#" class="module-link">Japan Rail Pass</a></li>
+
+<li><a href="#" class="module-link">SIM Cards & eSIM</a></li>
+
+</ul>
+
+</div>
+
+ 
+
+</section>
+
+ 
+
+</main>
+
+ 
+
+ 
+
+<!-- ==================== DUAL CLOCKS ==================== -->
+
+<script>
+
+(function () {
+
+  const jstEl = document.getElementById("clock-jst");
+
+  const localEl = document.getElementById("clock-local");
+
+ 
+
+  // Safety check: if either is missing, exit
+
+  if (!jstEl || !localEl) return;
+
+ 
+
+  // Options for Tokyo (Japan Standard Time)
+
+  const jstOpts = {
+
+    timeZone: "Asia/Tokyo",
+
+    hour: "numeric",
+
+    minute: "2-digit",
+
+    second: "2-digit",
+
+    hour12: true
+
+  };
+
+ 
+
+  // Options for User's Local Time (automatic)
+
+  const localOpts = {
+
+    hour: "numeric",
+
+    minute: "2-digit",
+
+    second: "2-digit",
+
+    hour12: true
+
+  };
+
+ 
+
+  function tick() {
+
+    const now = new Date();
+
+    jstEl.textContent = now.toLocaleTimeString("en-US", jstOpts);
+
+    localEl.textContent = now.toLocaleTimeString("en-US", localOpts);
+
+  }
+
+ 
+
+  tick();
+
+  setInterval(tick, 1000);
+
+})();
+
+ 
+
+</script>
+
+ 
+
+<!-- JavaScript to fetch and display top 3 articles (with auto-load on start) -->
+
+ 
+
+<script>
+
+  document.addEventListener("DOMContentLoaded", () => {
+
+    const dropdown = document.getElementById('news-source-dropdown');
+
+    const resultsContainer = document.getElementById('news-results');
+
+ 
+
+    // CORS helper proxy for reading XML cleanly inside the browser
+
+    const CORS_PROXY = https://api.rss2json.com/v1/api.json?rss_url=;
+
+ 
+
+    function fetchAndRenderFeed(rssUrl) {
+
+      if (!rssUrl) {
+
+        resultsContainer.innerHTML = '';
+
+        return;
+
+      }
+
+ 
+
+      resultsContainer.innerHTML = '<div class="news-loading">Loading top stories...</div>';
+
+ 
+
+      fetch(CORS_PROXY + encodeURIComponent(rssUrl))
+
+        .then(response => response.json())
+
+        .then(data => {
+
+          if (data.status === "ok") {
+
+            const topArticles = data.items.slice(0, 5);
+
+            let htmlContent = '<ul class="news-articles-list">';
+
+ 
+
+            topArticles.forEach(article => {
+
+              htmlContent +=
+
+                '<li class="news-item">' +
+
+                  '<a href="' + article.link + '" target="_blank" rel="noopener noreferrer" class="news-link">' +
+
+                    article.title +
+
+                  "</a>" +
+
+                "</li>";
+
+            });
+
+ 
+
+            htmlContent += "</ul>";
+
+            resultsContainer.innerHTML = htmlContent;
+
+          } else {
+
+            resultsContainer.innerHTML = '<div class="news-error">Unable to load feed. Please try again.</div>';
+
+          }
+
+        })
+
+        .catch(error => {
+
+          console.error("Fetch error:", error);
+
+          resultsContainer.innerHTML = '<div class="news-error">Network error loading news.</div>';
+
+        });
+
+    }
+
+ 
+
+    dropdown.addEventListener("change", function () {
+
+      fetchAndRenderFeed(this.value);
+
+    });
+
+ 
+
+    if (dropdown.value) {
+
+      fetchAndRenderFeed(dropdown.value);
+
+    }
+
+  });
+
+</script>
+
+ 
+
+<!-- ==================== THEME TOGGLE ==================== -->
+
+<script>
+
+(function () {
+
+  var html = document.documentElement;
+
+  var btn = document.getElementById("theme-toggle");
+
+  if (!btn) return;
+
+ 
+
+  function apply(theme) {
+
+    var isDark = theme === "dark";
+
+    html.classList.toggle("dark-mode", isDark);
+
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+
+    btn.textContent = isDark ? "Light" : "Dark";
+
+    btn.setAttribute("aria-label", isDark ? "Switch to light mode" : "Switch to dark mode");
+
+  }
+
+ 
+
+  apply(localStorage.getItem("theme") === "dark" ? "dark" : "light");
+
+ 
+
+  btn.addEventListener("click", function () {
+
+    apply(html.classList.contains("dark-mode") ? "light" : "dark");
+
+  });
+
+})();
+
+</script>
+
+ 
+
+<script>
+
+document.addEventListener('DOMContentLoaded', () => {
+
+  const weatherBox = document.getElementById('weather-box');
+
+  if (!weatherBox) return;
+
+ 
+
+  // Complete regional mapping for all requested Indo-Pacific operating areas
+
+  const BASE_CONFIGS = {
+
+    misawa:             { lat: '40.6845', lon: '141.3683', zoom: '6', overlay: 'radar', label: 'Misawa AB Area' },
+
+    yokosuka:           { lat: '35.2808', lon: '139.6722', zoom: '6', overlay: 'radar', label: 'Yokosuka Navy Area' },
+
+    atsugi:             { lat: '35.4561', lon: '139.4502', zoom: '6', overlay: 'radar', label: 'Atsugi NAF Area' },
+
+    sasebo:             { lat: '33.1614', lon: '129.7153', zoom: '6', overlay: 'radar', label: 'Sasebo Navy Area' },
+
+    okinawa:            { lat: '26.3556', lon: '127.7672', zoom: '5', overlay: 'radar', label: 'Okinawa Area' },
+
+    iwakuni:            { lat: '34.1438', lon: '132.2359', zoom: '6', overlay: 'radar', label: 'Iwakuni MCAS Area' },
+
+    korea:              { lat: '36.9634', lon: '127.0305', zoom: '5', overlay: 'radar', label: 'ROK / USFK Area' },
+
+    guam:               { lat: '13.4443', lon: '144.7937', zoom: '6', overlay: 'radar', label: 'Guam Joint Region Marianas' },
+
+    singapore:          { lat: '1.3521',  lon: '103.8198', zoom: '6', overlay: 'satellite', label: 'COMCARGRU 7 / Singapore' },
+
+    diegogarcia:    { lat: '-7.3114', lon: '72.4111',  zoom: '5', overlay: 'satellite', label: 'NSF Diego Garcia' }
+
+  };
+
+ 
+
+  // Detect which file is being requested in the current URL path
+
+  const currentPath = window.location.pathname.toLowerCase();
+
+ 
+
+  // Default to Yokosuka coordinates if no subpage match is found
+
+  let activeBase = BASE_CONFIGS.yokosuka;
+
+ 
+
+  // Check URL path against keys
+
+  for (const key in BASE_CONFIGS) {
+
+    if (currentPath.includes(key)) {
+
+      activeBase = BASE_CONFIGS[key];
+
+      break;
+
+    }
+
+  }
+
+ 
+
+  // Inject optimized, local, autoplaying radar or satellite frame
+
+  weatherBox.innerHTML = `
+
+    <div class="weather-map-container" style="width: 100%; overflow: hidden; border-radius: 6px;">
+
+      <iframe
+
+        src=https://embed.windy.com/embed2.html?lat=${activeBase.lat}&lon=${activeBase.lon}&width=100%&height=250&zoom=${activeBase.zoom}&level=surface&overlay=${activeBase.overlay}&product=${activeBase.overlay}&menu=&message=&marker=1&calendar=now&play=1&type=map&location=coordinates&metricWind=default&metricTemp=default&radarRange=-1
+
+        style="width: 100%; height: 250px; border: none; background: #1a1a24;"
+
+        loading="lazy"
+
+            referrerpolicy="no-referrer"
+
+        title="Live Area Feed">
+
+      </iframe>
+
+      <p class="weather-caption" style="font-size: 0.75rem; color: var(--muted); text-align: right; margin-top: 4px;">
+
+        Live Feed (Autoplay) • ${activeBase.label}
+
+      </p>
+
+    </div>
+
+  `;
+
+});
+
+</script>
+
+ 
+
+ 
+
+</body>
+
+</html>
