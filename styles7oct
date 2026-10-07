@@ -1,0 +1,975 @@
+:root {
+
+  --page-width: 900px;
+
+ 
+
+  --ink: #1d1d1f;
+
+  --muted: #646464;
+
+  --line: #dedede;
+
+ 
+
+  --page-background: #e9e9e9;
+
+  --card-background: #ffffff;
+
+ 
+
+  --accent: #205f88;
+
+  --header-bg: #ffffff;
+
+ 
+
+  --link: #205f88;
+
+  --link-hover: #163f5c;
+
+  --border-soft: #dedede;
+
+  --text-muted: #646464;
+
+}
+
+ 
+
+.dark-mode {
+
+  --ink: #00FF00; /* Classic terminal green */
+
+  --muted: #00cc00;     /* Slightly darker green for secondary text */
+
+  --line: #222222;
+
+ 
+
+  --page-background: #000000; /* Pure black background */
+
+  --card-background: #0a0a0a; /* Very dark card background */
+
+ 
+
+  --accent: #00FF00;
+
+  --header-bg: #001a00;
+
+ 
+
+  --link: #6bb3e0;
+
+  --link-hover: #9dcef0;
+
+  --border-soft: #222222;
+
+  --text-muted: #008800;      /* Dim green for muted text */
+
+}
+
+* { box-sizing: border-box; }
+
+ 
+
+html {
+
+      scroll-behavior: smooth;
+
+      color-scheme: light;
+
+}
+
+ 
+
+body {
+
+  margin: 0;
+
+  background: var(--page-background);
+
+  color: var(--ink);
+
+  font-family: Arial, Helvetica, sans-serif;
+
+}
+
+ 
+
+/* ==================== PAGE ==================== */
+
+.page {
+
+width: 100%;
+
+max-width: var(--page-width);
+
+margin: 0 auto;
+
+background: var(--card-background);
+
+min-height: 100vh;
+
+}
+
+ 
+
+/* Desktop only: Apply shadow when there is actual margin around the container */
+
+@media (min-width: 900px) {
+
+  .page {
+
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.08);
+
+  }
+
+ 
+
+  .dark-mode .page {
+
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.45);
+
+  }
+
+}
+
+ 
+
+/* ==================== hero-section ==================== */
+
+.hero-section {
+
+display: flex;
+
+flex-direction: column;
+
+align-items: center;
+
+gap: 12px;
+
+padding: 16px 20px 14px;
+
+background: var(--header-bg);
+
+border-bottom: 1px solid var(--line);
+
+position: relative;
+
+}
+
+ 
+
+.hero-section::after {
+
+content: "";
+
+position: absolute;
+
+bottom: 0;
+
+left: 0;
+
+right: 0;
+
+height: 3px;
+
+background: linear-gradient(90deg, transparent, var(--accent), transparent);
+
+opacity: 0.75;
+
+}
+
+ 
+
+.hero-section-content {
+
+display: flex;
+
+width: 100%;
+
+justify-content: space-between;
+
+gap: 20px;
+
+}
+
+ 
+
+.hero-section-left,
+
+.hero-section-right {
+
+flex: 1 1 0;
+
+display: flex;
+
+flex-direction: column;
+
+gap: 4px;
+
+font-size: 0.9rem;
+
+line-height: 1.35;
+
+}
+
+ 
+
+.site-title,
+
+.site-title-right {
+
+margin: 0;
+
+font-size: 1.08rem;
+
+font-weight: 700;
+
+color: var(--ink);
+
+}
+
+ 
+
+.line2 {
+
+color: var(--ink);
+
+font-size: 0.87rem;
+
+font-weight: 600;
+
+}
+
+ 
+
+/* Desktop */
+
+@media (min-width: 620px) {
+
+.hero-section {
+
+flex-direction: row;
+
+justify-content: space-between;
+
+padding: 16px 32px;
+
+}
+
+ 
+
+.hero-section-logo { order: 2; }
+
+.hero-section-left { order: 1; }
+
+.hero-section-right { order: 3; }
+
+.site-title,
+
+.site-title-right {
+
+font-size: 1.15rem;
+
+}
+
+}
+
+ 
+
+/* -- =============== UTILITY BAR (Tokyo + Local Clocks) ================= --- */
+
+.utility-bar {
+
+  background: var(--card-background);
+
+  border-bottom: none;
+
+  padding: 8px 16px 11px;
+
+  font-size: 0.8rem;
+
+  position: relative;
+
+}
+
+ 
+
+.utility-inner {
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+    flex-wrap: wrap;
+
+  gap: 12px 24px;
+
+}
+
+ 
+
+.clock-group {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+}
+
+ 
+
+.clock-label {
+
+  color: var(--muted);
+
+  font-weight: 600;
+
+  text-transform: uppercase;
+
+  font-size: 0.7rem;
+
+  letter-spacing: 0.04em;
+
+}
+
+ 
+
+.clock-time {
+
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  font-variant-numeric: tabular-nums;
+
+  font-weight: 700;
+
+  color: var(--ink);
+
+  background: var(--card-background);
+
+  padding: 3px 6px;
+
+  border-radius: 4px;
+
+  border: 1px solid var(--line);
+
+  font-size: 0.78rem;
+
+}
+
+ 
+
+.theme-toggle {
+
+  appearance: none;
+
+  -webkit-appearance: none;
+
+  background: var(--card-background);
+
+  color: var(--ink);
+
+  border: 1px solid var(--line);
+
+  border-radius: 999px;
+
+  padding: 4px 12px;
+
+  min-width: 58px;
+
+  height: 26px;
+
+  font-family: inherit;
+
+  font-size: 0.7rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.06em;
+
+  text-transform: uppercase;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+}
+
+ 
+
+.theme-toggle:hover {
+
+  border-color: var(--accent);
+
+  color: var(--accent);
+
+}
+
+ 
+
+.theme-toggle:focus {
+
+  outline: 2px solid var(--accent);
+
+  outline-offset: 2px;
+
+}
+
+ 
+
+/* 3. Add the thick gradient line to the bottom of the utility bar */
+
+.utility-bar::after {
+
+  content: "";
+
+  position: absolute;
+
+  bottom: 0;
+
+  left: 0;
+
+  right: 0;
+
+  height: 3px;
+
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+
+  opacity: 0.75;
+
+}
+
+ 
+
+/* ==================== MAP ==================== */
+
+.map-section {
+
+  padding: 24px 20px;
+
+  border-bottom: 1px solid var(--line);
+
+}
+
+.map-shell {
+
+  position: relative;
+
+  width: 100%;
+
+}
+
+.map-shell img {
+
+  display: block;          /* eliminates the inline-image gap that would stretch Y coords */
+
+  width: 100%;
+
+  height: auto;
+
+  user-select: none;
+
+}
+
+.map-overlay {
+
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+
+  height: 100%;
+
+  pointer-events: none;    /* SVG itself does not steal clicks */
+
+}
+
+.map-hotspot {
+
+  fill: #ffffff;
+
+  fill-opacity: 0.001;     /* essentially invisible — no ghost */
+
+  cursor: pointer;
+
+  pointer-events: auto;    /* only the polygons are clickable */
+
+}
+
+.map-hotspot:hover {
+
+  fill-opacity: 0.12;
+
+}
+
+.map-hotspot:focus {
+
+  fill-opacity: 0.18;
+
+  stroke: #111;
+
+  stroke-width: 0.8;       /* much thinner; 3 was oversized in 0–100 space */
+
+  outline: none;
+
+}
+
+.dark-mode .map-hotspot:focus {
+
+  stroke: var(--accent);
+
+}
+
+ 
+
+/* ==================== H2 and subtitle Centered ==================== */
+
+h2 {
+
+    text-align: center;
+
+      color: var(--ink);
+
+}
+
+ 
+
+p {
+
+    text-align: center;
+
+      color: var(--ink);
+
+}
+
+ 
+
+/* ==================== MODULE GRID ==================== */
+
+.module-grid {
+
+display: flex;
+
+flex-direction: column;
+
+gap: 16px;
+
+padding: 20px;
+
+}
+
+ 
+
+@media (min-width: 700px) {
+
+.module-grid {
+
+display: grid;
+
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
+gap: 20px;
+
+}
+
+}
+
+ 
+
+/* ==================== MODULE BOX ==================== */
+
+.module-box {
+
+  background: var(--card-background);
+
+  padding: 18px;
+
+  border: 1px solid var(--line);
+
+  border-radius: 6px;
+
+}
+
+ 
+
+.module-title {
+
+  margin: 0 0 10px;
+
+  font-size: 1.25rem;
+
+  font-weight: 700;
+
+  color: var(--ink);
+
+}
+
+ 
+
+.module-content {
+
+  font-size: 0.95rem;
+
+  color: var(--muted);
+
+}
+
+ 
+
+.module-placeholder {
+
+  margin: 0;
+
+  color: var(--muted);
+
+  font-style: italic;
+
+}
+
+ 
+
+/* ==================== MODULE LIST ==================== */
+
+.module-list {
+
+margin: 0;
+
+padding: 0;
+
+list-style: none;
+
+}
+
+ 
+
+.module-list li {
+
+margin-bottom: 8px;
+
+}
+
+ 
+
+.module-link {
+
+color: var(--accent);
+
+font-weight: 700;
+
+text-decoration: none;
+
+}
+
+ 
+
+.module-link:hover {
+
+text-decoration: underline;
+
+}
+
+ 
+
+ 
+
+/* ==================================================== */
+
+/* NEWS FEED DROPDOWN & RESULTS STYLING                 */
+
+/* ==================================================== */
+
+.news-widget-panel {
+
+  display: flex;
+
+  flex-direction: column;
+
+}
+
+ 
+
+#news-source-dropdown {
+
+  width: 100%;
+
+  max-width: 100%;
+
+  padding: 6px 8px;
+
+  margin-top: 4px;
+
+  margin-bottom: 8px;
+
+  font-size: 0.85rem;
+
+  border: 1px solid var(--border-soft);
+
+  border-radius: 4px;
+
+  background-color: var(--card-background);
+
+  color: var(--ink);
+
+  cursor: pointer;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+
+}
+
+ 
+
+#news-results {
+
+  max-height: 380px;
+
+  overflow-y: auto;
+
+  margin-top: 6px;
+
+  padding-right: 4px;
+
+}
+
+ 
+
+.news-articles-list {
+
+  list-style: none;
+
+  padding: 0;
+
+  margin: 0;
+
+}
+
+ 
+
+#news-results .news-item {
+
+  padding: 6px 0;
+
+  border-bottom: 1px solid var(--line);
+
+  font-size: 0.85rem;
+
+  line-height: 1.35;
+
+}
+
+ 
+
+#news-results .news-item:last-child {
+
+  border-bottom: none;
+
+}
+
+ 
+
+#news-results a,
+
+#news-results .news-link {
+
+  color: var(--link);
+
+  text-decoration: none;
+
+  display: block;
+
+  word-break: break-word;
+
+}
+
+ 
+
+#news-results a:hover,
+
+#news-results .news-link:hover {
+
+  color: var(--link-hover);
+
+  text-decoration: underline;
+
+}
+
+ 
+
+#news-results .news-date {
+
+  font-size: 0.75rem;
+
+  color: var(--text-muted);
+
+  margin-top: 2px;
+
+}
+
+ 
+
+#news-results .news-loading,
+
+#news-results .news-error {
+
+  margin: 0;
+
+  color: var(--muted);
+
+  font-size: 0.85rem;
+
+}
+
+ 
+
+/* ==================================================== */
+
+/* WEATHER OVERVIEW MODULE (Mobile Optimized)          */
+
+/* ==================================================== */
+
+ 
+
+.weather-map-container {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 10px;
+
+}
+
+ 
+
+.weather-tab-group {
+
+  display: flex;
+
+  gap: 6px;
+
+  margin-bottom: 4px;
+
+}
+
+ 
+
+.weather-tab-btn {
+
+  flex: 1;
+
+  padding: 6px 8px;
+
+  font-size: 0.75rem;
+
+  font-weight: 600;
+
+  border-radius: 4px;
+
+  border: 1px solid var(--border-soft);
+
+  background-color: var(--card-background);
+
+  color: var(--ink);
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+
+}
+
+ 
+
+.weather-tab-btn.active {
+
+  background-color: var(--accent, #007bff);
+
+  color: #ffffff;
+
+  border-color: var(--accent, #007bff);
+
+}
+
+ 
+
+.weather-frame-wrap {
+
+  width: 100%;
+
+  border-radius: 6px;
+
+  overflow: hidden;
+
+  border: 1px solid var(--line);
+
+  background: #000000;
+
+  position: relative;
+
+  min-height: 220px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+}
+
+ 
+
+.weather-live-img {
+
+  width: 100%;
+
+  height: auto;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition: opacity 0.2s ease-in;
+
+}
+
+ 
+
+.weather-caption {
+
+  font-size: 0.75rem;
+
+  color: var(--muted);
+
+  text-align: right;
+
+  margin: 0;
+
+}
+
+.weather-frame-wrap {
+
+  width: 100%;
+
+  border-radius: 6px;
+
+  overflow: hidden;
+
+  border: 1px solid var(--line);
+
+  background: #1a1a24; /* Dark blue/grey contrast background */
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+}
