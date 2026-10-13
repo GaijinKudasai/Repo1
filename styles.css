@@ -331,21 +331,26 @@ p {
   flex-direction: column;
 }
 
-#news-source-dropdown {
+#news-source-dropdown,
+.field {
   width: 100%;
-  max-width: 100%;
-  padding: 6px 8px;
-  margin-top: 4px;
-  margin-bottom: 8px;
-  font-size: 0.85rem;
-  border: 1px solid var(--border-soft);
-  border-radius: 4px;
+  padding: 10px 12px;
+  margin: 4px 0 10px 0;
+  font-size: 0.9rem;
+  border: 2px solid var(--border-soft);
+  border-radius: 6px;
   background-color: var(--card-background);
   color: var(--ink);
   cursor: pointer;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
+  font-family: inherit;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+#news-source-dropdown:focus,
+.field:focus {
+  outline: none;
+  border-color: var(--accent);
 }
 
 /* Generic form field styling */
