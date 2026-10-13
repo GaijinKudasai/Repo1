@@ -74,73 +74,54 @@ body {
 
 /* ==================== hero-section ==================== */
 .hero-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  padding: 16px 20px 14px;
   background: var(--header-bg);
   border-bottom: 1px solid var(--line);
   position: relative;
-}
-
-.hero-section::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, transparent, var(--accent), transparent);
-  opacity: 0.75;
+  padding: 16px 20px;
 }
 
 .hero-section-content {
   display: flex;
-  width: 100%;
-  justify-content: space-between;
-  gap: 20px;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
 }
 
-.hero-section-left,
-.hero-section-right {
-  flex: 1 1 0;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  font-size: 0.9rem;
-  line-height: 1.35;
+/* Desktop: Show 3 columns (Left | Logo | Right) */
+@media (min-width: 900px) {
+  .hero-section-content {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+    padding: 16px 32px;
+    gap: 20px;
+  }
+  
+  .hero-section-left,
+  .hero-section-right {
+    flex: 1;
+  }
 }
 
 .site-title,
 .site-title-right {
   margin: 0;
-  font-size: 1.08rem;
+  font-size: 1.25rem;
   font-weight: 700;
   color: var(--ink);
 }
 
 .line2 {
-  color: var(--ink);
-  font-size: 0.87rem;
-  font-weight: 600;
+  color: var(--muted);
+  font-size: 0.95rem;
+  font-weight: 500;
 }
 
-/* Desktop */
-@media (min-width: 620px) {
-  .hero-section {
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 16px 32px;
-  }
-
-  .hero-section-logo { order: 2; }
-  .hero-section-left { order: 1; }
-  .hero-section-right { order: 3; }
-  .site-title,
-  .site-title-right {
-    font-size: 1.15rem;
-  }
+.gaijin-logo {
+  height: 65px;
+  width: auto;
 }
 
 /* -- =============== UTILITY BAR (Diego Garcia, Singapore, Tokyo and Guam) ================= --- */
