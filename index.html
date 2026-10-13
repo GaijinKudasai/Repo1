@@ -291,15 +291,15 @@ role="img">
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    const dropdown = document.getElementById('news-source-dropdown');
-    const resultsContainer = document.getElementById('news-results');
+    const dropdown = document.getElementById("news-source-dropdown");
+    const resultsContainer = document.getElementById("news-results");
 
     // CORS helper proxy for reading XML cleanly inside the browser
     const CORS_PROXY = "https://api.rss2json.com/v1/api.json?rss_url=";
 
     function fetchAndRenderFeed(rssUrl) {
       if (!rssUrl) {
-        resultsContainer.innerHTML = '';
+        resultsContainer.innerHTML = "";
         return;
       }
 
