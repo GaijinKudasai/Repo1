@@ -40,7 +40,6 @@ fetchpriority="high">
 <div class="hero-section-right">
 <div class="site-title-right">Learning HTML and CSS</div>
 <div class="line2">placeholder</div>
-<div>
 </div>
 
 </header>
@@ -398,7 +397,7 @@ const BASE_CONFIGS = {
   const currentPath = window.location.pathname.toLowerCase();
   
   // Default to Yokosuka coordinates if no subpage match is found
-  let activeBase = BASE_CONFIGS.yokosuka; 
+  let activeBase = BASE_CONFIGS.kanto; 
 
   // Check URL path against keys
   for (const key in BASE_CONFIGS) {
