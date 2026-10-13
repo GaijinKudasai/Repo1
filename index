@@ -371,19 +371,28 @@ document.addEventListener('DOMContentLoaded', () => {
   const weatherBox = document.getElementById('weather-box');
   if (!weatherBox) return;
 
-  // Complete regional mapping for all requested Indo-Pacific operating areas
-  const BASE_CONFIGS = {
-    misawa:    		{ lat: '40.6845', lon: '141.3683', zoom: '6', overlay: 'radar', label: 'Misawa AB Area' },
-    yokosuka:  		{ lat: '35.2808', lon: '139.6722', zoom: '6', overlay: 'radar', label: 'Yokosuka Navy Area' },
-    atsugi:    		{ lat: '35.4561', lon: '139.4502', zoom: '6', overlay: 'radar', label: 'Atsugi NAF Area' },
-    sasebo:    		{ lat: '33.1614', lon: '129.7153', zoom: '6', overlay: 'radar', label: 'Sasebo Navy Area' },
-    okinawa:      	{ lat: '26.3556', lon: '127.7672', zoom: '5', overlay: 'radar', label: 'Okinawa Area' },
-    iwakuni:   		{ lat: '34.1438', lon: '132.2359', zoom: '6', overlay: 'radar', label: 'Iwakuni MCAS Area' },
-    korea:     		{ lat: '36.9634', lon: '127.0305', zoom: '5', overlay: 'radar', label: 'ROK / USFK Area' },
-    guam:      		{ lat: '13.4443', lon: '144.7937', zoom: '6', overlay: 'radar', label: 'Guam Joint Region Marianas' },
-    singapore: 		{ lat: '1.3521',  lon: '103.8198', zoom: '6', overlay: 'satellite', label: 'COMCARGRU 7 / Singapore' },
-    diegogarcia:    { lat: '-7.3114', lon: '72.4111',  zoom: '5', overlay: 'satellite', label: 'NSF Diego Garcia' }
-  };
+ // Complete regional mapping for all requested Indo-Pacific operating areas
+const BASE_CONFIGS = {
+    // === Hokkaido ===
+    hokkaido:     { lat: '43.0642', lon: '141.3469', zoom: '8', overlay: 'radar', label: 'Hokkaido Area (Sapporo)' },
+    // === Tohoku ===
+    tohoku:       { lat: '38.2682', lon: '140.8694', zoom: '8', overlay: 'radar', label: 'Tohoku Area (Sendai)' },
+    // === Kanto ===
+    kanto:        { lat: '35.6895', lon: '139.6917', zoom: '8', overlay: 'radar', label: 'Kanto Area (Tokyo)' },
+    // === Chubu ===
+    chubu:        { lat: '35.1815', lon: '136.9066', zoom: '8', overlay: 'radar', label: 'Chubu Area (Nagoya)' },
+    // === Kansai ===
+    kansai:       { lat: '34.6937', lon: '135.5023', zoom: '8', overlay: 'radar', label: 'Kansai Area (Osaka/Kobe)' },
+    // === Chugoku ===
+    chugoku:      { lat: '34.3852', lon: '132.4553', zoom: '8', overlay: 'radar', label: 'Chugoku Area (Hiroshima)' },
+    // === Shikoku ===
+    shikoku:      { lat: '33.8392', lon: '132.7657', zoom: '9', overlay: 'radar', label: 'Shikoku Area (Matsuyama)' },
+    // === Kyushu ===
+    kyushu:       { lat: '33.5902', lon: '130.4017', zoom: '8', overlay: 'radar', label: 'Kyushu Area (Fukuoka)' },
+    // === Okinawa ===
+    okinawa:      { lat: '26.3556', lon: '127.7672', zoom: '9', overlay: 'radar', label: 'Okinawa Area' },
+    naha:         { lat: '26.3556', lon: '127.7672', zoom: '9', overlay: 'radar', label: 'Naha / Okinawa Area' },
+};
 
   // Detect which file is being requested in the current URL path
   const currentPath = window.location.pathname.toLowerCase();
