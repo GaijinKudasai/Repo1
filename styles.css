@@ -124,7 +124,7 @@ body {
   width: auto;
 }
 
-/* -- =============== UTILITY BAR (Diego Garcia, Singapore, Tokyo and Guam) ================= --- */
+/* -- =============== UTILITY BAR (Tokyo stuff ================= --- */
 .utility-bar {
   background: var(--card-background);
   border-bottom: none;
@@ -331,39 +331,21 @@ p {
   flex-direction: column;
 }
 
-#news-source-dropdown,
-.field {
+#news-source-dropdown {
   width: 100%;
   max-width: 100%;
-  padding: 8px 12px;
+  padding: 6px 8px;
   margin-top: 4px;
   margin-bottom: 8px;
-  font-size: 0.9rem;
-  border: 2px solid var(--border-soft);
-  border-radius: 6px;
-  background-color: var(--card-background);
-  color: var(--ink);
-  cursor: pointer;
-  font-family: inherit;
-}
-
-#news-source-dropdown:focus,
-.field:focus {
-  outline: none;
-  border-color: var(--accent);
-}
-
-/* Generic form field styling */
-.field {
-  width: 100%;
-  padding: 6px 8px;
   font-size: 0.85rem;
   border: 1px solid var(--border-soft);
   border-radius: 4px;
   background-color: var(--card-background);
   color: var(--ink);
-  font-family: inherit;
-}
+  cursor: pointer;
+  text-overflow: ellipsis;	/* ====supposedly problematic==== */
+  white-space: nowrap;		/* ====supposedly problematic==== */
+  overflow: hidden;			/* ====supposedly problematic==== */
 
 #news-results {
   max-height: 380px;
@@ -377,6 +359,19 @@ p {
   padding: 0;
   margin: 0;
 }
+
+#news-results .news-item {
+  padding: 6px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.85rem;
+  line-height: 1.35;
+}
+
+#news-results .news-item:last-child {
+  border-bottom: none;
+}
+
+#news-results a,
 
 #news-results .news-item {
   padding: 6px 0;
