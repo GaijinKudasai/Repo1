@@ -484,14 +484,4 @@ p {
   justify-content: center;
 }
 
-/* TEMPORARY DEBUG - REMOVE LATER */
-@media (min-width: 700px) {
-    #news-source-dropdown {
-        position: relative !important;
-        z-index: 10000 !important;
-        pointer-events: auto !important;
-        overflow: visible !important;
-        white-space: normal !important;
-        display: block !important;
-    }
 }
