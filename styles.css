@@ -347,6 +347,7 @@ p {
   /* text-overflow: ellipsis; */
   /* white-space: nowrap; */
   /* overflow: hidden; */
+}
 
 #news-results {
   max-height: 380px;
