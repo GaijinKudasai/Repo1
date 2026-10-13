@@ -343,9 +343,10 @@ p {
   background-color: var(--card-background);
   color: var(--ink);
   cursor: pointer;
-  text-overflow: ellipsis;	/* ====supposedly problematic==== */
-  white-space: nowrap;		/* ====supposedly problematic==== */
-  overflow: hidden;			/* ====supposedly problematic==== */
+  /* These three lines were causing the dropdown to not open properly */
+  /* text-overflow: ellipsis; */
+  /* white-space: nowrap; */
+  /* overflow: hidden; */
 
 #news-results {
   max-height: 380px;
