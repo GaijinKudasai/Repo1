@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300" aria-hidden="true">
+
+  <!-- 1. Shadow (back) -->
+  <g transform="translate(248, 165)">
+    <circle cx="0" cy="-60" r="14" fill="#2c2c2c" stroke="#2c2c2c" stroke-width="12"/>
+    <path d="M 0,-46 L 0,-10 M 0,-40 L 15,-20 L 25,2 M 0,-40 L -15,-22 L -10,0 M 0,-10 L 18,15 L 28,55 M 0,-10 L -18,15 L -8,55"
+          fill="none" stroke="#2c2c2c" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- 2. Brown (middle) -->
+  <g transform="translate(200, 165)">
+    <circle cx="0" cy="-60" r="14" fill="#b85c2e" stroke="#b85c2e" stroke-width="12"/>
+    <path d="M 0,-46 L 0,-10 M 0,-40 L 15,-20 L 25,2 M 0,-40 L -15,-22 L -10,0 M 0,-10 L 18,15 L 28,55 M 0,-10 L -18,15 L -8,55"
+          fill="none" stroke="#b85c2e" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- 3. White figure with BLACK OUTLINE -->
+  <!-- First draw the black outline (thicker) -->
+  <g transform="translate(152, 165)">
+    <circle cx="0" cy="-60" r="14" fill="#ffffff" stroke="#1a1a1a" stroke-width="15"/>
+    <path d="M 0,-46 L 0,-10 M 0,-40 L 15,-20 L 25,2 M 0,-40 L -15,-22 L -10,0 M 0,-10 L 18,15 L 28,55 M 0,-10 L -18,15 L -8,55"
+          fill="none" stroke="#1a1a1a" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Then draw the white fill on top (slightly thinner) -->
+  <g transform="translate(152, 165)">
+    <circle cx="0" cy="-60" r="14" fill="#ffffff" stroke="#ffffff" stroke-width="11"/>
+    <path d="M 0,-46 L 0,-10 M 0,-40 L 15,-20 L 25,2 M 0,-40 L -15,-22 L -10,0 M 0,-10 L 18,15 L 28,55 M 0,-10 L -18,15 L -8,55"
+          fill="none" stroke="#ffffff" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+</svg>
