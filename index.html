@@ -310,13 +310,16 @@ role="img">
   tick();
   setInterval(tick, 1000);
 })();
+	
+<!-- JavaScript to fetch and display top 3 articles (with auto-load on start)-->
+	
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     const dropdown = document.getElementById("news-source-dropdown");
     const resultsContainer = document.getElementById("news-results");
-
-    const PROXY_BASE = "https://rss-proxy.gaijinczar.workers.dev/?url=";
-    const MAX_ARTICLES = 5;
+	
+	 // CORS helper proxy for reading XML cleanly inside the browser
+    const CORS_PROXY = "https://api.rss2json.com/v1/api.json?rss_url=";
 
     function fetchAndRenderFeed(rssUrl) {
       if (!rssUrl) {
@@ -324,55 +327,46 @@ role="img">
         return;
       }
 
-      resultsContainer.innerHTML = '<div class="news-loading">Loading headlines...</div>';
+      resultsContainer.innerHTML = '<div class="news-loading">Loading top stories...</div>';
 
-      fetch(PROXY_BASE + encodeURIComponent(rssUrl))
-        .then(res => res.json())
+      fetch(CORS_PROXY + encodeURIComponent(rssUrl))
+        .then(response => response.json())
         .then(data => {
-          if (data.status !== "ok" || !data.items || data.items.length === 0) {
-            resultsContainer.innerHTML = '<div class="news-error">No headlines available from this source.</div>';
-            return;
+          if (data.status === "ok") {
+            const topArticles = data.items.slice(0, 5);
+            let htmlContent = '<ul class="news-articles-list">';
+
+            topArticles.forEach(article => {
+              htmlContent +=
+                '<li class="news-item">' +
+                  '<a href="' + article.link + '" target="_blank" rel="noopener noreferrer" class="news-link">' +
+                    article.title +
+                  "</a>" +
+                "</li>";
+            });
+
+            htmlContent += "</ul>";
+            resultsContainer.innerHTML = htmlContent;
+          } else {
+            resultsContainer.innerHTML = '<div class="news-error">Unable to load feed. Please try again.</div>';
           }
-
-          const articles = data.items.slice(0, MAX_ARTICLES);
-
-          let html = '<ul class="news-articles-list">';
-          articles.forEach(article => {
-            html += `
-              <li class="news-item">
-                <a href="${article.link}" target="_blank" rel="noopener noreferrer" class="news-link">
-                  ${article.title}
-                </a>
-              </li>`;
-          });
-          html += '</ul>';
-
-          resultsContainer.innerHTML = html;
         })
-        .catch(() => {
-          resultsContainer.innerHTML = `
-            <div class="news-error">
-              Could not load news from this source.<br>
-              <small>Please try another source or refresh the page.</small>
-            </div>`;
+        .catch(error => {
+          console.error("Fetch error:", error);
+          resultsContainer.innerHTML = '<div class="news-error">Network error loading news.</div>';
         });
     }
 
-    dropdown.addEventListener("change", (e) => {
-      fetchAndRenderFeed(e.target.value);
+    dropdown.addEventListener("change", function () {
+      fetchAndRenderFeed(this.value);
     });
 
-    // Auto load the default (Mainichi)
     if (dropdown.value) {
       fetchAndRenderFeed(dropdown.value);
     }
   });
 </script>
-    if (dropdown.value) {
-      fetchAndRenderFeed(dropdown.value);
-    }
-  });
-</script>
+<!-- End of News Java Script -->
 
 <!-- ==================== THEME TOGGLE ==================== -->
 <script>
