@@ -310,19 +310,12 @@ role="img">
   tick();
   setInterval(tick, 1000);
 })();
-
-</script>
-
-<!-- JavaScript to fetch and display top 3 articles (with auto-load on start) -->
-
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     const dropdown = document.getElementById("news-source-dropdown");
     const resultsContainer = document.getElementById("news-results");
 
-    // This is the important line — it points to YOUR Cloudflare Worker
     const PROXY_BASE = "https://rss-proxy.gaijinczar.workers.dev/?url=";
-    
     const MAX_ARTICLES = 5;
 
     function fetchAndRenderFeed(rssUrl) {
@@ -336,8 +329,8 @@ role="img">
       fetch(PROXY_BASE + encodeURIComponent(rssUrl))
         .then(res => res.json())
         .then(data => {
-          if (data.status !== "ok") {
-            resultsContainer.innerHTML = '<div class="news-error">No headlines available.</div>';
+          if (data.status !== "ok" || !data.items || data.items.length === 0) {
+            resultsContainer.innerHTML = '<div class="news-error">No headlines available from this source.</div>';
             return;
           }
 
@@ -345,19 +338,36 @@ role="img">
 
           let html = '<ul class="news-articles-list">';
           articles.forEach(article => {
-            html += `<li class="news-item"><a href="${article.link}" target="_blank" rel="noopener noreferrer">${article.title}</a></li>`;
+            html += `
+              <li class="news-item">
+                <a href="${article.link}" target="_blank" rel="noopener noreferrer" class="news-link">
+                  ${article.title}
+                </a>
+              </li>`;
           });
           html += '</ul>';
-          
+
           resultsContainer.innerHTML = html;
         })
         .catch(() => {
-          resultsContainer.innerHTML = '<div class="news-error">Could not load news.</div>';
+          resultsContainer.innerHTML = `
+            <div class="news-error">
+              Could not load news from this source.<br>
+              <small>Please try another source or refresh the page.</small>
+            </div>`;
         });
     }
 
-    dropdown.addEventListener("change", (e) => fetchAndRenderFeed(e.target.value));
-    
+    dropdown.addEventListener("change", (e) => {
+      fetchAndRenderFeed(e.target.value);
+    });
+
+    // Auto load the default (Mainichi)
+    if (dropdown.value) {
+      fetchAndRenderFeed(dropdown.value);
+    }
+  });
+</script>
     if (dropdown.value) {
       fetchAndRenderFeed(dropdown.value);
     }
