@@ -320,8 +320,10 @@ role="img">
     const dropdown = document.getElementById("news-source-dropdown");
     const resultsContainer = document.getElementById("news-results");
 
-    // CORS helper proxy for reading XML cleanly inside the browser
-    const CORS_PROXY = "https://api.rss2json.com/v1/api.json?rss_url=";
+    // This is the important line — it points to YOUR Cloudflare Worker
+    const PROXY_BASE = "https://rss-proxy.gaijinczar.workers.dev/?url=";
+    
+    const MAX_ARTICLES = 5;
 
     function fetchAndRenderFeed(rssUrl) {
       if (!rssUrl) {
@@ -329,40 +331,33 @@ role="img">
         return;
       }
 
-      resultsContainer.innerHTML = '<div class="news-loading">Loading top stories...</div>';
+      resultsContainer.innerHTML = '<div class="news-loading">Loading headlines...</div>';
 
-      fetch(CORS_PROXY + encodeURIComponent(rssUrl))
-        .then(response => response.json())
+      fetch(PROXY_BASE + encodeURIComponent(rssUrl))
+        .then(res => res.json())
         .then(data => {
-          if (data.status === "ok") {
-            const topArticles = data.items.slice(0, 5);
-            let htmlContent = '<ul class="news-articles-list">';
-
-            topArticles.forEach(article => {
-              htmlContent +=
-                '<li class="news-item">' +
-                  '<a href="' + article.link + '" target="_blank" rel="noopener noreferrer" class="news-link">' +
-                    article.title +
-                  "</a>" +
-                "</li>";
-            });
-
-            htmlContent += "</ul>";
-            resultsContainer.innerHTML = htmlContent;
-          } else {
-            resultsContainer.innerHTML = '<div class="news-error">Unable to load feed. Please try again.</div>';
+          if (data.status !== "ok") {
+            resultsContainer.innerHTML = '<div class="news-error">No headlines available.</div>';
+            return;
           }
+
+          const articles = data.items.slice(0, MAX_ARTICLES);
+
+          let html = '<ul class="news-articles-list">';
+          articles.forEach(article => {
+            html += `<li class="news-item"><a href="${article.link}" target="_blank" rel="noopener noreferrer">${article.title}</a></li>`;
+          });
+          html += '</ul>';
+          
+          resultsContainer.innerHTML = html;
         })
-        .catch(error => {
-          console.error("Fetch error:", error);
-          resultsContainer.innerHTML = '<div class="news-error">Network error loading news.</div>';
+        .catch(() => {
+          resultsContainer.innerHTML = '<div class="news-error">Could not load news.</div>';
         });
     }
 
-    dropdown.addEventListener("change", function () {
-      fetchAndRenderFeed(this.value);
-    });
-
+    dropdown.addEventListener("change", (e) => fetchAndRenderFeed(e.target.value));
+    
     if (dropdown.value) {
       fetchAndRenderFeed(dropdown.value);
     }
