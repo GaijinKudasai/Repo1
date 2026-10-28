@@ -279,7 +279,7 @@ body {
 
 /* ==================== MAP ==================== */
 .map-section {
-  padding: 24px 20px;
+  padding: 13px 9px;
   border-bottom: 1px solid var(--line);
 }
 .map-shell {
