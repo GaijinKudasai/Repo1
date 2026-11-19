@@ -280,12 +280,12 @@ body {
 /* ==================================================== */
 /* ==================== MAP ==================== */
 /* ==================================================== */
+
 .map-section {
   padding: 13px 9px 10px;
   border-bottom: 1px solid var(--line);
 }
 
-/* Only the Explore Japan heading */
 .map-section h2 {
   text-align: center;
   color: var(--ink);
@@ -293,7 +293,6 @@ body {
   line-height: 1.15;
 }
 
-/* Only “Select a region on the map...” */
 .map-section h2 + p {
   text-align: center;
   color: var(--ink);
@@ -308,7 +307,7 @@ body {
 }
 
 .map-shell img {
-  display: block;          /* eliminates the inline-image gap that would stretch Y coords */
+  display: block;
   width: 100%;
   height: auto;
   user-select: none;
@@ -319,14 +318,14 @@ body {
   inset: 0;
   width: 100%;
   height: 100%;
-  pointer-events: none;    /* SVG itself does not steal clicks */
+  pointer-events: none;
 }
 
 .map-hotspot {
   fill: #ffffff;
-  fill-opacity: 0.001;     /* essentially invisible — no ghost */
+  fill-opacity: 0.001;
   cursor: pointer;
-  pointer-events: auto;    /* only the polygons are clickable */
+  pointer-events: auto;
 }
 
 .map-hotspot:hover {
@@ -336,7 +335,7 @@ body {
 .map-hotspot:focus {
   fill-opacity: 0.18;
   stroke: #111;
-  stroke-width: 6;         /* was 0.8 — that was only correct for the old 0–100 viewBox */
+  stroke-width: 6;
   outline: none;
 }
 
@@ -344,40 +343,81 @@ body {
   stroke: var(--accent);
 }
 
-/* ========== NEW: label overlay ========== */
+/* ========== Label Overlay ========== */
 .map-labels {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  pointer-events: none;    /* so clicks pass through to the SVG hotspots */
+  pointer-events: none;
   z-index: 2;
 }
 
+/* Base label style – mobile first (small) */
 .map-label {
   position: absolute;
   white-space: nowrap;
-  /* transform: translate(-50%, -50%);  ← uncomment later if labels feel off-center */
-  pointer-events: auto;    /* only if you want the text itself to be clickable */
-  font-size: 0.85rem;      /* adjust to taste */
-  font-weight: 700;
-  color: var(--ink);
-}
-
-/* City labels keep the strong outline that BetterTrace generates */
-.map-label.city {
+  pointer-events: auto;
   font-family: "Arial Black", Arial, sans-serif;
   font-weight: 700;
-  -webkit-text-stroke: 0;          /* kill the thick stroke */
+  font-size: 0.68rem;                 /* small on phones */
+  line-height: 1.1;
+  color: var(--ink);
+
+  /* Soft outline that works on both light and dark */
+  -webkit-text-stroke: 0.75px rgba(30, 30, 30, 0.55);
   text-shadow:
-     1px  1px 1.5px rgba(0,0,0,0.85),
-    -1px  1px 1.5px rgba(0,0,0,0.85),
-     1px -1px 1.5px rgba(0,0,0,0.85),
-    -1px -1px 1.5px rgba(0,0,0,0.85);
+     0.55px  0.55px 0 rgba(0,0,0,0.35),
+    -0.55px  0.55px 0 rgba(0,0,0,0.35),
+     0.55px -0.55px 0 rgba(0,0,0,0.35),
+    -0.55px -0.55px 0 rgba(0,0,0,0.35);
 }
+
+/* Region labels a bit larger than cities */
+.map-label.region {
+  font-size: 0.74rem;
+}
+
+/* Slightly bigger on larger phones / small tablets */
+@media (min-width: 420px) {
+  .map-label {
+    font-size: 0.74rem;
+  }
+  .map-label.region {
+    font-size: 0.82rem;
+  }
+}
+
+/* Comfortable size on tablets / small desktops */
+@media (min-width: 600px) {
+  .map-label {
+    font-size: 0.82rem;
+  }
+  .map-label.region {
+    font-size: 0.92rem;
+  }
+}
+
+/* Full size on desktop */
+@media (min-width: 900px) {
+  .map-label {
+    font-size: 0.88rem;
+  }
+  .map-label.region {
+    font-size: 1rem;
+  }
+}
+
+/* Optional: hide city labels on very narrow screens to reduce clutter */
+@media (max-width: 380px) {
+  .map-label.city {
+    display: none;
+  }
+}
+
 /* ==================================================== */
 /* ==================== End MAP ==================== */
-/* ==================================================== */
+/* ==================================================== */= */
 
 /* ==================== H2 and subtitle Centered ==================== */
 h2 {
