@@ -277,7 +277,9 @@ body {
 }
 /* ===== Second utility bar (feature) - Thin + Large Icon ===== */
 
+/* ==================================================== */
 /* ==================== MAP ==================== */
+/* ==================================================== */
 .map-section {
   padding: 13px 9px 10px;
   border-bottom: 1px solid var(--line);
@@ -287,7 +289,7 @@ body {
 .map-section h2 {
   text-align: center;
   color: var(--ink);
-  margin: 0;              /* removes space above and below the heading */
+  margin: 0;
   line-height: 1.15;
 }
 
@@ -295,19 +297,23 @@ body {
 .map-section h2 + p {
   text-align: center;
   color: var(--ink);
- margin: 0 0 8px;        /* no gap above; 8px before the map */
+  margin: 0 0 8px;
   line-height: 1.3;
 }
+
 .map-shell {
   position: relative;
   width: 100%;
+  background: transparent;
 }
+
 .map-shell img {
   display: block;          /* eliminates the inline-image gap that would stretch Y coords */
   width: 100%;
   height: auto;
   user-select: none;
 }
+
 .map-overlay {
   position: absolute;
   inset: 0;
@@ -315,24 +321,63 @@ body {
   height: 100%;
   pointer-events: none;    /* SVG itself does not steal clicks */
 }
+
 .map-hotspot {
   fill: #ffffff;
   fill-opacity: 0.001;     /* essentially invisible — no ghost */
   cursor: pointer;
   pointer-events: auto;    /* only the polygons are clickable */
 }
+
 .map-hotspot:hover {
   fill-opacity: 0.12;
 }
+
 .map-hotspot:focus {
   fill-opacity: 0.18;
   stroke: #111;
-  stroke-width: 0.8;       /* much thinner; 3 was oversized in 0–100 space */
+  stroke-width: 6;         /* was 0.8 — that was only correct for the old 0–100 viewBox */
   outline: none;
 }
+
 .dark-mode .map-hotspot:focus {
   stroke: var(--accent);
 }
+
+/* ========== NEW: label overlay ========== */
+.map-labels {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;    /* so clicks pass through to the SVG hotspots */
+  z-index: 2;
+}
+
+.map-label {
+  position: absolute;
+  white-space: nowrap;
+  /* transform: translate(-50%, -50%);  ← uncomment later if labels feel off-center */
+  pointer-events: auto;    /* only if you want the text itself to be clickable */
+  font-size: 0.85rem;      /* adjust to taste */
+  font-weight: 700;
+  color: var(--ink);
+}
+
+/* City labels keep the strong outline that BetterTrace generates */
+.map-label.city {
+  font-family: "Arial Black", Arial, sans-serif;
+  font-weight: 700;
+  -webkit-text-stroke: 0;          /* kill the thick stroke */
+  text-shadow:
+     1px  1px 1.5px rgba(0,0,0,0.85),
+    -1px  1px 1.5px rgba(0,0,0,0.85),
+     1px -1px 1.5px rgba(0,0,0,0.85),
+    -1px -1px 1.5px rgba(0,0,0,0.85);
+}
+/* ==================================================== */
+/* ==================== End MAP ==================== */
+/* ==================================================== */
 
 /* ==================== H2 and subtitle Centered ==================== */
 h2 {
