@@ -353,62 +353,77 @@ body {
   z-index: 2;
 }
 
-/* Base label style – mobile first (small) */
+/* Base label style */
 .map-label {
   position: absolute;
   white-space: nowrap;
   pointer-events: auto;
-  font-family: "Arial Black", Arial, sans-serif;
-  font-weight: 700;
-  font-size: 0.68rem;                 /* small on phones */
-  line-height: 1.1;
-  color: var(--ink);
+  line-height: 1.15;
 
-  /* Soft outline that works on both light and dark */
-  -webkit-text-stroke: 0.75px rgba(30, 30, 30, 0.55);
+  /* Best font stack for outlined labels */
+  font-family: "Arial Black", "Helvetica Black", Arial, Helvetica, sans-serif;
+  font-weight: 900;
+
+  /* Soft outline - Light mode */
+  -webkit-text-stroke: 0.8px rgba(30, 30, 30, 0.6);
   text-shadow:
-     0.55px  0.55px 0 rgba(0,0,0,0.35),
-    -0.55px  0.55px 0 rgba(0,0,0,0.35),
-     0.55px -0.55px 0 rgba(0,0,0,0.35),
-    -0.55px -0.55px 0 rgba(0,0,0,0.35);
+     0.6px  0.6px 0 rgba(0, 0, 0, 0.4),
+    -0.6px  0.6px 0 rgba(0, 0, 0, 0.4),
+     0.6px -0.6px 0 rgba(0, 0, 0, 0.4),
+    -0.6px -0.6px 0 rgba(0, 0, 0, 0.4);
 }
 
-/* Region labels a bit larger than cities */
+/* Dark mode - slightly lighter outline so it stays visible */
+.dark-mode .map-label {
+  -webkit-text-stroke: 0.8px rgba(220, 220, 220, 0.5);
+  text-shadow:
+     0.6px  0.6px 0 rgba(0, 0, 0, 0.7),
+    -0.6px  0.6px 0 rgba(0, 0, 0, 0.7),
+     0.6px -0.6px 0 rgba(0, 0, 0, 0.7),
+    -0.6px -0.6px 0 rgba(0, 0, 0, 0.7);
+}
+
+/* ---------- Mobile-first sizing ---------- */
+
+/* Default = Phones */
+.map-label {
+  font-size: 0.70rem;
+}
 .map-label.region {
-  font-size: 0.74rem;
+  font-size: 0.78rem;
 }
 
-/* Slightly bigger on larger phones / small tablets */
+/* Larger phones */
 @media (min-width: 420px) {
   .map-label {
-    font-size: 0.74rem;
+    font-size: 0.78rem;
   }
   .map-label.region {
-    font-size: 0.82rem;
-  }
-}
-
-/* Comfortable size on tablets / small desktops */
-@media (min-width: 600px) {
-  .map-label {
-    font-size: 0.82rem;
-  }
-  .map-label.region {
-    font-size: 0.92rem;
-  }
-}
-
-/* Full size on desktop */
-@media (min-width: 900px) {
-  .map-label {
     font-size: 0.88rem;
   }
+}
+
+/* Tablets */
+@media (min-width: 600px) {
+  .map-label {
+    font-size: 0.86rem;
+  }
   .map-label.region {
-    font-size: 1rem;
+    font-size: 0.96rem;
   }
 }
 
-/* Optional: hide city labels on very narrow screens to reduce clutter */
+/* Desktop */
+@media (min-width: 900px) {
+  .map-label {
+    font-size: 0.92rem;
+  }
+  .map-label.region {
+    font-size: 1.05rem;
+  }
+}
+
+/* Hide city labels on very small screens to reduce clutter */
 @media (max-width: 380px) {
   .map-label.city {
     display: none;
@@ -417,7 +432,7 @@ body {
 
 /* ==================================================== */
 /* ==================== End MAP ==================== */
-/* ==================================================== */= */
+/* ==================================================== */
 
 /* ==================== H2 and subtitle Centered ==================== */
 h2 {
