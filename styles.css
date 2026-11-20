@@ -1,37 +1,42 @@
 :root {
   --page-width: 900px;
 
+  /* Light mode */
   --ink: #1d1d1f;
   --muted: #646464;
   --line: #dedede;
 
   --page-background: #e9e9e9;
   --card-background: #ffffff;
-
-  --accent: #205f88;
   --header-bg: #ffffff;
 
+  --accent: #205f88;
   --link: #205f88;
   --link-hover: #163f5c;
+
   --border-soft: #dedede;
   --text-muted: #646464;
 }
 
 .dark-mode {
-  --ink: #00FF00;	 /* Classic terminal green */
-  --muted: #00cc00;	 /* Slightly darker green for secondary text */
-  --line: #222222;
+  /* Text - classic neon terminal green */
+  --ink: #00FF00;
+  --muted: #00cc00;
+  --text-muted: #009900;
 
-  --page-background: #000000;	/* Pure black background */
-  --card-background: #0a0a0a;	/* Very dark card background */
+  /* Structure */
+  --line: #1f1f1f;
+  --border-soft: #2a2a2a;
 
+  /* Backgrounds - cleaned (no green tint) */
+  --page-background: #000000;
+  --card-background: #0a0a0a;
+  --header-bg: #000000;          /* ← This removes the greenish hero */
+
+  /* Accent & Links - stay in the green family */
   --accent: #00FF00;
-  --header-bg: #001a00;
-
-  --link: #6bb3e0;
-  --link-hover: #9dcef0;
-  --border-soft: #222222;
-  --text-muted: #008800;	/* Dim green for muted text */
+  --link: #5cdb5c;
+  --link-hover: #00FF00;
 }
 
 * { box-sizing: border-box; }
