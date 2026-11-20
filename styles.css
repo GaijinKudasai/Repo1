@@ -75,7 +75,7 @@ body {
 
 /* ==================== hero-section ==================== */
 .hero-section {
-  background: var(--header-bg);
+  background: var(--header-bg);   /* ← This is how you USE it to change header background matching dark mode above (13) */
   border-bottom: 1px solid var(--line);
   position: relative;
   padding: 16px 20px;
