@@ -302,7 +302,7 @@ body {
 }
 
 .map-shell {
-  position: relative;
+  position: relative;          /* needed so absolute children position correctly */
   width: 100%;
   background: transparent;
 }
@@ -314,29 +314,34 @@ body {
   user-select: none;
 }
 
+/* The SVG sits on top of the image */
 .map-overlay {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  pointer-events: none;
+  pointer-events: none;        /* SVG itself does not capture clicks */
 }
 
+/* ========== CLICKABLE REGIONS (the traced polygons) ========== */
 .map-hotspot {
   fill: #ffffff;
-  fill-opacity: 0.001;
+  fill-opacity: 0;             /* fully transparent so the map shows through */
+  stroke: transparent;
   cursor: pointer;
-  pointer-events: auto;
+  pointer-events: all;         /* ← THIS is the most important line */
 }
 
+/* Visual feedback when hovering a region */
 .map-hotspot:hover {
-  fill-opacity: 0.12;
+  fill: #ffffff;
+  fill-opacity: 0.15;
 }
 
 .map-hotspot:focus {
-  fill-opacity: 0.18;
+  fill-opacity: 0.20;
   stroke: #111;
-  stroke-width: 6;
+  stroke-width: 4;
   outline: none;
 }
 
@@ -350,22 +355,25 @@ body {
   inset: 0;
   width: 100%;
   height: 100%;
-  pointer-events: none;
+  pointer-events: none;        /* empty space does not block clicks */
   z-index: 2;
 }
 
-/* Base label style */
+/* Base style for all labels */
 .map-label {
   position: absolute;
   white-space: nowrap;
-  pointer-events: auto;
+  pointer-events: auto;        /* the text itself can be clicked */
   line-height: 1.15;
+}
 
-  /* Best font stack for outlined labels */
+/* Strong style for Region names + linked cities */
+.map-label.region,
+a.map-label.city {
   font-family: "Arial Black", "Helvetica Black", Arial, Helvetica, sans-serif;
   font-weight: 900;
 
-  /* Soft outline - Light mode */
+  /* Soft outline */
   -webkit-text-stroke: 0.8px rgba(30, 30, 30, 0.6);
   text-shadow:
      0.6px  0.6px 0 rgba(0, 0, 0, 0.4),
@@ -374,8 +382,9 @@ body {
     -0.6px -0.6px 0 rgba(0, 0, 0, 0.4);
 }
 
-/* Dark mode - slightly lighter outline so it stays visible */
-.dark-mode .map-label {
+/* Dark mode outline adjustment */
+.dark-mode .map-label.region,
+.dark-mode a.map-label.city {
   -webkit-text-stroke: 0.8px rgba(220, 220, 220, 0.5);
   text-shadow:
      0.6px  0.6px 0 rgba(0, 0, 0, 0.7),
@@ -384,50 +393,56 @@ body {
     -0.6px -0.6px 0 rgba(0, 0, 0, 0.7);
 }
 
-/* ---------- Mobile-first sizing ---------- */
-
-/* Default = Phones */
-.map-label {
-  font-size: 0.70rem;
+/* Lighter style for cities that have no link */
+div.map-label.city {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  -webkit-text-stroke: 0;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+  opacity: 0.9;
 }
-.map-label.region {
-  font-size: 0.78rem;
+
+/* ---------- Responsive font sizing ---------- */
+
+/* Phones */
+.map-label.region,
+a.map-label.city {
+  font-size: 0.68rem;
+}
+div.map-label.city {
+  font-size: 0.58rem;
 }
 
-/* Larger phones */
-@media (min-width: 420px) {
-  .map-label {
-    font-size: 0.78rem;
+/* Bigger phones */
+@media (min-width: 430px) {
+  .map-label.region,
+  a.map-label.city {
+    font-size: 0.76rem;
   }
-  .map-label.region {
-    font-size: 0.88rem;
+  div.map-label.city {
+    font-size: 0.64rem;
   }
 }
 
 /* Tablets */
 @media (min-width: 600px) {
-  .map-label {
-    font-size: 0.86rem;
+  .map-label.region,
+  a.map-label.city {
+    font-size: 0.88rem;
   }
-  .map-label.region {
-    font-size: 0.96rem;
+  div.map-label.city {
+    font-size: 0.72rem;
   }
 }
 
 /* Desktop */
 @media (min-width: 900px) {
-  .map-label {
-    font-size: 0.92rem;
+  .map-label.region,
+  a.map-label.city {
+    font-size: 0.98rem;
   }
-  .map-label.region {
-    font-size: 1.05rem;
-  }
-}
-
-/* Hide city labels on very small screens to reduce clutter */
-@media (max-width: 380px) {
-  .map-label.city {
-    display: none;
+  div.map-label.city {
+    font-size: 0.80rem;
   }
 }
 
