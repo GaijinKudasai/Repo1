@@ -80,7 +80,7 @@ if (localStorage.getItem("theme") === "dark") {
 <!-- ============ TRADECRAFT - End Second utility - TRADECRAFT ============ -->
 
 
-<!-- ==================== NEW JAPAN MAP ==================== -->
+<!-- ==================== JAPAN MAP ==================== -->
 <section class="map-section">
   <h2>Explore Japan</h2>
   <p>Select a region on the map to discover more.</p>
@@ -88,127 +88,137 @@ if (localStorage.getItem("theme") === "dark") {
   <div class="map-shell">
     <img src="picture13.webp" alt="Map of Japan showing major regions">
 
-    <!-- Clickable hotspots (SVG) -->
+    <!-- Clickable hotspots only (SVG) -->
     <svg class="map-overlay"
          viewBox="0 0 1162 1125"
          preserveAspectRatio="none"
-         aria-label="Interactive map of Japan">
+         aria-label="Interactive map of Japan"
+         role="img">
 
       <!-- Okinawa -->
-      <path class="map-hotspot" data-region="okinawa"
-            d="M 181.0,485.0 L 145.0,544.0 L 136.0,540.0 L 180.0,485.0 Z"
+      <path class="map-hotspot" 
+            data-region="okinawa" 
+            d="M 181.0,485.0 L 145.0,544.0 L 136.0,540.0 L 180.0,485.0 Z" 
             onclick="window.location.href='/pages/regions/okinawa.html'"
             role="link" tabindex="0" aria-label="Open Okinawa page" />
 
       <!-- Kyushu -->
-      <path class="map-hotspot" data-region="kyushu"
-            d="M 203.0,356.0 L 230.0,377.0 L 211.0,418.0 L 200.0,411.0 L 186.0,369.0 L 202.0,356.0 Z"
+      <path class="map-hotspot" 
+            data-region="kyushu" 
+            d="M 203.0,356.0 L 230.0,377.0 L 211.0,418.0 L 200.0,411.0 L 186.0,369.0 L 202.0,356.0 Z" 
             onclick="window.location.href='/pages/regions/kyushu.html'"
             role="link" tabindex="0" aria-label="Open Kyushu page" />
 
       <!-- Shikoku -->
-      <path class="map-hotspot" data-region="shikoku"
-            d="M 279.0,364.0 L 285.0,348.0 L 271.0,347.0 L 254.0,355.0 L 251.0,377.0 L 279.0,365.0 Z"
+      <path class="map-hotspot" 
+            data-region="shikoku" 
+            d="M 279.0,364.0 L 285.0,348.0 L 271.0,347.0 L 254.0,355.0 L 251.0,377.0 L 279.0,365.0 Z" 
             onclick="window.location.href='/pages/regions/shikoku.html'"
             role="link" tabindex="0" aria-label="Open Shikoku page" />
 
       <!-- Chugoku -->
-      <path class="map-hotspot" data-region="chugoku"
-            d="M 279.0,312.0 L 276.0,332.0 L 245.0,340.0 L 233.0,347.0 L 212.0,345.0 L 254.0,313.0 L 278.0,312.0 Z"
+      <path class="map-hotspot" 
+            data-region="chugoku" 
+            d="M 279.0,312.0 L 276.0,332.0 L 245.0,340.0 L 233.0,347.0 L 212.0,345.0 L 254.0,313.0 L 278.0,312.0 Z" 
             onclick="window.location.href='/pages/regions/chugoku.html'"
             role="link" tabindex="0" aria-label="Open Chugoku page" />
 
       <!-- Kansai -->
-      <path class="map-hotspot" data-region="kansai"
-            d="M 322.0,320.0 L 331.0,339.0 L 314.0,357.0 L 295.0,339.0 L 290.0,327.0 L 292.0,312.0 L 302.0,317.0 L 313.0,325.0 L 322.0,320.0 Z"
+      <path class="map-hotspot" 
+            data-region="kansai" 
+            d="M 322.0,320.0 L 331.0,339.0 L 314.0,357.0 L 295.0,339.0 L 290.0,327.0 L 292.0,312.0 L 302.0,317.0 L 313.0,325.0 L 322.0,320.0 Z" 
             onclick="window.location.href='/pages/regions/kansai.html'"
             role="link" tabindex="0" aria-label="Open Kansai page" />
 
       <!-- Chubu -->
-      <path class="map-hotspot" data-region="chubu"
-            d="M 373.0,248.0 L 392.0,246.0 L 387.0,258.0 L 363.0,287.0 L 381.0,328.0 L 344.0,328.0 L 329.0,297.0 L 342.0,265.0 L 372.0,248.0 Z"
+      <path class="map-hotspot" 
+            data-region="chubu" 
+            d="M 373.0,248.0 L 392.0,246.0 L 387.0,258.0 L 363.0,287.0 L 381.0,328.0 L 344.0,328.0 L 329.0,297.0 L 342.0,265.0 L 372.0,248.0 Z" 
             onclick="window.location.href='/pages/regions/chubu.html'"
             role="link" tabindex="0" aria-label="Open Chubu page" />
 
       <!-- Kanto -->
-      <path class="map-hotspot" data-region="kanto"
-            d="M 384.0,281.0 L 417.0,283.0 L 418.0,304.0 L 404.0,323.0 L 394.0,314.0 L 384.0,297.0 L 384.0,281.0 Z"
+      <path class="map-hotspot" 
+            data-region="kanto" 
+            d="M 384.0,281.0 L 417.0,283.0 L 418.0,304.0 L 404.0,323.0 L 394.0,314.0 L 384.0,297.0 L 384.0,281.0 Z" 
             onclick="window.location.href='/pages/regions/kanto.html'"
             role="link" tabindex="0" aria-label="Open Kanto page" />
 
       <!-- Tohoku -->
-      <path class="map-hotspot" data-region="tohoku"
-            d="M 403.0,266.0 L 408.0,241.0 L 405.0,189.0 L 416.0,174.0 L 434.0,170.0 L 447.0,210.0 L 436.0,237.0 L 426.0,270.0 L 403.0,266.0 Z"
+      <path class="map-hotspot" 
+            data-region="tohoku" 
+            d="M 403.0,266.0 L 408.0,241.0 L 405.0,189.0 L 416.0,174.0 L 434.0,170.0 L 447.0,210.0 L 436.0,237.0 L 426.0,270.0 L 403.0,266.0 Z" 
             onclick="window.location.href='/pages/regions/tohoku.html'"
             role="link" tabindex="0" aria-label="Open Tohoku page" />
 
       <!-- Hokkaido -->
-      <path class="map-hotspot" data-region="hokkaido"
-            d="M 425.0,154.0 L 408.0,162.0 L 401.0,141.0 L 414.0,121.0 L 437.0,118.0 L 441.0,70.0 L 504.0,104.0 L 593.0,67.0 L 514.0,125.0 L 481.0,137.0 L 476.0,151.0 L 424.0,136.0 L 424.0,154.0 Z"
-            onclick="window.location.href='/pages/regions/hokkaido.html'"
-            role="link" tabindex="0" aria-label="Open Hokkaido page" />
+	  <path class="map-hotspot" 
+		  data-region="hokkaido" 
+		  d="M 425.0,154.0 L 408.0,162.0 L 401.0,141.0 L 414.0,121.0 L 437.0,118.0 L 441.0,70.0 L 504.0,104.0 L 593.0,67.0 L 514.0,125.0 L 481.0,137.0 L 476.0,151.0 L 424.0,136.0 L 424.0,154.0 Z" 
+		  onclick="window.location.href='/pages/regions/hokkaido.html'"
+		  role="link"
+		  tabindex="0"
+		  aria-label="Open Hokkaido page" />
 
     </svg>
 
-    <!-- Labels -->
+    <!-- Labels live here (HTML overlay) -->
     <div class="map-labels">
-
       <!-- Okinawa -->
-      <a class="map-label region" href="/pages/regions/okinawa.html" style="top: 62.64%; left: 17.07%; color: #2563EB;">Okinawa</a>
-      <div class="map-label city" style="top: 64.86%; left: 17.07%; color: #F97316;">Naha</div>
+      <a class="map-label region" href="/pages/regions/okinawa.html" style="top: 62.64%; left: 17.07%; color: #2563EB; font-family: Arial Black, Arial, sans-serif; font-weight: 700; -webkit-text-stroke: 0.85px rgba(40, 40, 40, 0.55); text-shadow: 0.6px 0.6px 0 rgba(0,0,0,0.35), -0.6px 0.6px 0 rgba(0,0,0,0.35), 0.6px -0.6px 0 rgba(0,0,0,0.35), -0.6px -0.6px 0 rgba(0,0,0,0.35); text-decoration: none;">Okinawa</a>
+      <div class="map-label city" style="top: 64.86%; left: 17.07%; color: #F97316; font-family: Arial, Helvetica, sans-serif; font-weight: 600; font-size: 0.68rem; -webkit-text-stroke: 0; text-shadow: 0 1px 2px rgba(0,0,0,0.45); opacity: 0.9;">Naha</div>
 
       <!-- Kyushu -->
-      <a class="map-label region" href="/pages/regions/kyushu.html" style="top: 54.17%; left: 16.80%; color: #2563EB;">Kyushu</a>
-      <div class="map-label city" style="top: 56.25%; left: 16.80%; color: #2563EB;">Fukuoka</div>
-      <div class="map-label city" style="top: 58.19%; left: 16.80%; color: #2563EB;">Nagasaki</div>
+      <a class="map-label region" href="/pages/regions/kyushu.html" style="top: 54.17%; left: 16.80%; color: #2563EB; font-family: Arial Black, Arial, sans-serif; font-weight: 700; -webkit-text-stroke: 0.85px rgba(40, 40, 40, 0.55); text-shadow: 0.6px 0.6px 0 rgba(0,0,0,0.35), -0.6px 0.6px 0 rgba(0,0,0,0.35), 0.6px -0.6px 0 rgba(0,0,0,0.35), -0.6px -0.6px 0 rgba(0,0,0,0.35); text-decoration: none;">Kyushu</a>
+      <div class="map-label city" style="top: 56.25%; left: 16.80%; color: #2563EB; font-family: Arial, Helvetica, sans-serif; font-weight: 600; font-size: 0.68rem; -webkit-text-stroke: 0; text-shadow: 0 1px 2px rgba(0,0,0,0.45); opacity: 0.9;">Fukuoka</div>
+      <div class="map-label city" style="top: 58.19%; left: 16.80%; color: #2563EB; font-family: Arial, Helvetica, sans-serif; font-weight: 600; font-size: 0.68rem; -webkit-text-stroke: 0; text-shadow: 0 1px 2px rgba(0,0,0,0.45); opacity: 0.9;">Nagasaki</div>
 
       <!-- Shikoku -->
-      <a class="map-label region" href="/pages/regions/shikoku.html" style="top: 53.89%; left: 33.47%; color: #0284C7;">Shikoku</a>
-      <div class="map-label city" style="top: 55.97%; left: 33.47%; color: #0284C7;">Kochi</div>
-      <div class="map-label city" style="top: 57.92%; left: 33.47%; color: #0284C7;">Matsuyama</div>
-      <div class="map-label city" style="top: 59.86%; left: 33.47%; color: #0284C7;">Takamatsu</div>
+      <a class="map-label region" href="/pages/regions/shikoku.html" style="top: 53.89%; left: 33.47%; color: #0284C7; font-family: Arial Black, Arial, sans-serif; font-weight: 700; -webkit-text-stroke: 0.85px rgba(40, 40, 40, 0.55); text-shadow: 0.6px 0.6px 0 rgba(0,0,0,0.35), -0.6px 0.6px 0 rgba(0,0,0,0.35), 0.6px -0.6px 0 rgba(0,0,0,0.35), -0.6px -0.6px 0 rgba(0,0,0,0.35); text-decoration: none;">Shikoku</a>
+      <div class="map-label city" style="top: 55.97%; left: 33.47%; color: #0284C7; font-family: Arial, Helvetica, sans-serif; font-weight: 600; font-size: 0.68rem; -webkit-text-stroke: 0; text-shadow: 0 1px 2px rgba(0,0,0,0.45); opacity: 0.9;">Kochi</div>
+      <div class="map-label city" style="top: 57.92%; left: 33.47%; color: #0284C7; font-family: Arial, Helvetica, sans-serif; font-weight: 600; font-size: 0.68rem; -webkit-text-stroke: 0; text-shadow: 0 1px 2px rgba(0,0,0,0.45); opacity: 0.9;">Matsuyama</div>
+      <div class="map-label city" style="top: 59.86%; left: 33.47%; color: #0284C7; font-family: Arial, Helvetica, sans-serif; font-weight: 600; font-size: 0.68rem; -webkit-text-stroke: 0; text-shadow: 0 1px 2px rgba(0,0,0,0.45); opacity: 0.9;">Takamatsu</div>
 
       <!-- Chugoku -->
-      <a class="map-label region" href="/pages/regions/chugoku.html" style="top: 34.31%; left: 27.55%; color: #C2410C;">Chugoku</a>
-      <div class="map-label city" style="top: 36.25%; left: 27.55%; color: #C2410C;">Matsue</div>
-      <div class="map-label city" style="top: 38.06%; left: 27.55%; color: #C2410C;">Kurashiki</div>
-      <div class="map-label city" style="top: 40.00%; left: 27.55%; color: #C2410C;">Hiroshima</div>
+      <a class="map-label region" href="/pages/regions/chugoku.html" style="top: 34.31%; left: 27.55%; color: #C2410C; font-family: Arial Black, Arial, sans-serif; font-weight: 700; -webkit-text-stroke: 0.85px rgba(40, 40, 40, 0.55); text-shadow: 0.6px 0.6px 0 rgba(0,0,0,0.35), -0.6px 0.6px 0 rgba(0,0,0,0.35), 0.6px -0.6px 0 rgba(0,0,0,0.35), -0.6px -0.6px 0 rgba(0,0,0,0.35); text-decoration: none;">Chugoku</a>
+      <div class="map-label city" style="top: 36.25%; left: 27.55%; color: #C2410C; font-family: Arial, Helvetica, sans-serif; font-weight: 600; font-size: 0.68rem; -webkit-text-stroke: 0; text-shadow: 0 1px 2px rgba(0,0,0,0.45); opacity: 0.9;">Matsue</div>
+      <div class="map-label city" style="top: 38.06%; left: 27.55%; color: #C2410C; font-family: Arial, Helvetica, sans-serif; font-weight: 600; font-size: 0.68rem; -webkit-text-stroke: 0; text-shadow: 0 1px 2px rgba(0,0,0,0.45); opacity: 0.9;">Kurashiki</div>
+      <div class="map-label city" style="top: 40.00%; left: 27.55%; color: #C2410C; font-family: Arial, Helvetica, sans-serif; font-weight: 600; font-size: 0.68rem; -webkit-text-stroke: 0; text-shadow: 0 1px 2px rgba(0,0,0,0.45); opacity: 0.9;">Hiroshima</div>
 
       <!-- Kansai -->
-      <a class="map-label region" href="/pages/regions/kansai.html" style="top: 48.47%; left: 45.43%; color: #8B5CF6;">Kansai</a>
-      <div class="map-label city" style="top: 50.56%; left: 45.43%; color: #8B5CF6;">Kyoto</div>
-      <div class="map-label city" style="top: 52.50%; left: 45.43%; color: #8B5CF6;">Kobe</div>
-      <div class="map-label city" style="top: 54.58%; left: 45.30%; color: #8B5CF6;">Osaka</div>
+      <a class="map-label region" href="/pages/regions/kansai.html" style="top: 48.47%; left: 45.43%; color: #8B5CF6; font-family: Arial Black, Arial, sans-serif; font-weight: 700; -webkit-text-stroke: 0.85px rgba(40, 40, 40, 0.55); text-shadow: 0.6px 0.6px 0 rgba(0,0,0,0.35), -0.6px 0.6px 0 rgba(0,0,0,0.35), 0.6px -0.6px 0 rgba(0,0,0,0.35), -0.6px -0.6px 0 rgba(0,0,0,0.35); text-decoration: none;">Kansai</a>
+      <div class="map-label city" style="top: 50.56%; left: 45.43%; color: #8B5CF6; font-family: Arial, Helvetica, sans-serif; font-weight: 600; font-size: 0.68rem; -webkit-text-stroke: 0; text-shadow: 0 1px 2px rgba(0,0,0,0.45); opacity: 0.9;">Kyoto</div>
+      <div class="map-label city" style="top: 52.50%; left: 45.43%; color: #8B5CF6; font-family: Arial, Helvetica, sans-serif; font-weight: 600; font-size: 0.68rem; -webkit-text-stroke: 0; text-shadow: 0 1px 2px rgba(0,0,0,0.45); opacity: 0.9;">Kobe</div>
+      <div class="map-label city" style="top: 54.58%; left: 45.30%; color: #8B5CF6; font-family: Arial, Helvetica, sans-serif; font-weight: 600; font-size: 0.68rem; -webkit-text-stroke: 0; text-shadow: 0 1px 2px rgba(0,0,0,0.45); opacity: 0.9;">Osaka</div>
 
       <!-- Chubu -->
-      <a class="map-label region" href="/pages/regions/chubu.html" style="top: 26.11%; left: 40.86%; color: #EAB308;">Chubu</a>
-      <div class="map-label city" style="top: 28.19%; left: 40.86%; color: #EAB308;">Takayama</div>
-      <div class="map-label city" style="top: 30.28%; left: 40.73%; color: #EAB308;">Kanazawa</div>
-      <div class="map-label city" style="top: 32.22%; left: 40.73%; color: #EAB308;">Nagoya</div>
+      <a class="map-label region" href="/pages/regions/chubu.html" style="top: 26.11%; left: 40.86%; color: #EAB308; font-family: Arial Black, Arial, sans-serif; font-weight: 700; -webkit-text-stroke: 0.85px rgba(40, 40, 40, 0.55); text-shadow: 0.6px 0.6px 0 rgba(0,0,0,0.35), -0.6px 0.6px 0 rgba(0,0,0,0.35), 0.6px -0.6px 0 rgba(0,0,0,0.35), -0.6px -0.6px 0 rgba(0,0,0,0.35); text-decoration: none;">Chubu</a>
+      <div class="map-label city" style="top: 28.19%; left: 40.86%; color: #EAB308; font-family: Arial, Helvetica, sans-serif; font-weight: 600; font-size: 0.68rem; -webkit-text-stroke: 0; text-shadow: 0 1px 2px rgba(0,0,0,0.45); opacity: 0.9;">Takayama</div>
+      <div class="map-label city" style="top: 30.28%; left: 40.73%; color: #EAB308; font-family: Arial, Helvetica, sans-serif; font-weight: 600; font-size: 0.68rem; -webkit-text-stroke: 0; text-shadow: 0 1px 2px rgba(0,0,0,0.45); opacity: 0.9;">Kanazawa</div>
+      <div class="map-label city" style="top: 32.22%; left: 40.73%; color: #EAB308; font-family: Arial, Helvetica, sans-serif; font-weight: 600; font-size: 0.68rem; -webkit-text-stroke: 0; text-shadow: 0 1px 2px rgba(0,0,0,0.45); opacity: 0.9;">Nagoya</div>
 
       <!-- Kanto -->
-      <a class="map-label region" href="/pages/regions/kanto.html" style="top: 41.25%; left: 58.87%; color: #529471;">Kanto</a>
-      <div class="map-label city" style="top: 43.47%; left: 58.87%; color: #529471;">Tokyo</div>
-      <div class="map-label city" style="top: 45.69%; left: 58.87%; color: #529471;">Yokohama</div>
-      <div class="map-label city" style="top: 47.78%; left: 58.87%; color: #529471;">Kamakura</div>
+      <a class="map-label region" href="/pages/regions/kanto.html" style="top: 41.25%; left: 58.87%; color: #529471; font-family: Arial Black, Arial, sans-serif; font-weight: 700; -webkit-text-stroke: 0.85px rgba(40, 40, 40, 0.55); text-shadow: 0.6px 0.6px 0 rgba(0,0,0,0.35), -0.6px 0.6px 0 rgba(0,0,0,0.35), 0.6px -0.6px 0 rgba(0,0,0,0.35), -0.6px -0.6px 0 rgba(0,0,0,0.35); text-decoration: none;">Kanto</a>
+      <div class="map-label city" style="top: 43.47%; left: 58.87%; color: #529471; font-family: Arial, Helvetica, sans-serif; font-weight: 600; font-size: 0.68rem; -webkit-text-stroke: 0; text-shadow: 0 1px 2px rgba(0,0,0,0.45); opacity: 0.9;">Tokyo</div>
+      <div class="map-label city" style="top: 45.69%; left: 58.87%; color: #529471; font-family: Arial, Helvetica, sans-serif; font-weight: 600; font-size: 0.68rem; -webkit-text-stroke: 0; text-shadow: 0 1px 2px rgba(0,0,0,0.45); opacity: 0.9;">Yokohama</div>
+      <div class="map-label city" style="top: 47.78%; left: 58.87%; color: #529471; font-family: Arial, Helvetica, sans-serif; font-weight: 600; font-size: 0.68rem; -webkit-text-stroke: 0; text-shadow: 0 1px 2px rgba(0,0,0,0.45); opacity: 0.9;">Kamakura</div>
 
       <!-- Tohoku -->
-      <a class="map-label region" href="/pages/regions/tohoku.html" style="top: 26.53%; left: 62.37%; color: #E63946;">Tohoku</a>
-      <div class="map-label city" style="top: 28.75%; left: 62.37%; color: #E63946;">Morioka</div>
-      <div class="map-label city" style="top: 30.69%; left: 62.23%; color: #E63946;">Sendai</div>
-      <div class="map-label city" style="top: 32.78%; left: 62.23%; color: #E63946;">Aizu-Wakamatsu</div>
+      <a class="map-label region" href="/pages/regions/tohoku.html" style="top: 26.53%; left: 62.37%; color: #E63946; font-family: Arial Black, Arial, sans-serif; font-weight: 700; -webkit-text-stroke: 0.85px rgba(40, 40, 40, 0.55); text-shadow: 0.6px 0.6px 0 rgba(0,0,0,0.35), -0.6px 0.6px 0 rgba(0,0,0,0.35), 0.6px -0.6px 0 rgba(0,0,0,0.35), -0.6px -0.6px 0 rgba(0,0,0,0.35); text-decoration: none;">Tohoku</a>
+      <div class="map-label city" style="top: 28.75%; left: 62.37%; color: #E63946; font-family: Arial, Helvetica, sans-serif; font-weight: 600; font-size: 0.68rem; -webkit-text-stroke: 0; text-shadow: 0 1px 2px rgba(0,0,0,0.45); opacity: 0.9;">Morioka</div>
+      <div class="map-label city" style="top: 30.69%; left: 62.23%; color: #E63946; font-family: Arial, Helvetica, sans-serif; font-weight: 600; font-size: 0.68rem; -webkit-text-stroke: 0; text-shadow: 0 1px 2px rgba(0,0,0,0.45); opacity: 0.9;">Sendai</div>
+      <div class="map-label city" style="top: 32.78%; left: 62.23%; color: #E63946; font-family: Arial, Helvetica, sans-serif; font-weight: 600; font-size: 0.68rem; -webkit-text-stroke: 0; text-shadow: 0 1px 2px rgba(0,0,0,0.45); opacity: 0.9;">Aizu-Wakamatsu</div>
 
       <!-- Hokkaido -->
-      <a class="map-label region" href="/pages/regions/hokkaido.html" style="top: 6.39%; left: 49.73%; color: #9E472A;">Hokkaido</a>
-      <div class="map-label city" style="top: 8.89%; left: 49.60%; color: #9E472A;">Sapporo</div>
-      <div class="map-label city" style="top: 10.56%; left: 49.60%; color: #9E472A;">Otaru</div>
-      <div class="map-label city" style="top: 12.22%; left: 49.60%; color: #9E472A;">Hakodate</div>
-
+		<a class="map-label region" href="/pages/regions/hokkaido.html" style="top: 6.39%; left: 49.73%; color: #9E472A; font-family: Arial Black, Helvetica Black, Arial, sans-serif; font-weight: 900; -webkit-text-stroke: 0.85px rgba(40, 40, 40, 0.55); text-shadow: 0.6px 0.6px 0 rgba(0,0,0,0.35), -0.6px 0.6px 0 rgba(0,0,0,0.35), 0.6px -0.6px 0 rgba(0,0,0,0.35), -0.6px -0.6px 0 rgba(0,0,0,0.35); text-decoration: none;">Hokkaido</a>
+	  
+		<<div class="map-label city" style="top: 8.89%; left: 49.60%; color: #9E472A; font-family: Arial, Helvetica, sans-serif; font-weight: 600; font-size: 0.68rem; -webkit-text-stroke: 0; text-shadow: 0 1px 2px rgba(0,0,0,0.45); opacity: 0.9;">Sapporo</div>
+		<div class="map-label city" style="top: 10.56%; left: 49.60%; color: #9E472A; font-family: Arial, Helvetica, sans-serif; font-weight: 600; font-size: 0.68rem; -webkit-text-stroke: 0; text-shadow: 0 1px 2px rgba(0,0,0,0.45); opacity: 0.9;">Otaru</div>
+		<div class="map-label city" style="top: 12.22%; left: 49.60%; color: #9E472A; font-family: Arial, Helvetica, sans-serif; font-weight: 600; font-size: 0.68rem; -webkit-text-stroke: 0; text-shadow: 0 1px 2px rgba(0,0,0,0.45); opacity: 0.9;">Hakodate</div>
     </div>
   </div>
 </section>
-<!-- =================== End NEW JAPAN MAP =================== -->
-		  
+<!-- =================== End JAPAN MAP =================== -->
 
 <!-- ==================== MODULE GRID ==================== -->
 <section class="module-grid">
