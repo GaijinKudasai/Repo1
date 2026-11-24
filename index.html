@@ -498,53 +498,101 @@ const BASE_CONFIGS = {
 </script>
 
 
-<!-- ==================== JAPAN EARTHQUAKE HISTORY ==================== -->
+<!-- ==================== JAPAN EARTHQUAKE HISTORY (JMA + English + Smart Links) ==================== -->
 <script>
 document.addEventListener("DOMContentLoaded", () => {
     const container = document.getElementById("japan-alerts");
     if (!container) return;
+    container.innerHTML = '<div class="news-loading">Loading recent JMA seismic activity...</div>';
 
-    container.innerHTML = '<div class="news-loading">Loading recent seismic activity...</div>';
+    const placeMap = {
+        "宮城県沖": "Off Miyagi Prefecture",
+        "福島県沖": "Off Fukushima Prefecture",
+        "茨城県沖": "Off Ibaraki Prefecture",
+        "千葉県東方沖": "East of Chiba Prefecture",
+        "千葉県南方沖": "South of Chiba Prefecture",
+        "神奈川県東方沖": "East of Kanagawa Prefecture",
+        "三陸沖": "Off Sanriku",
+        "北海道東方沖": "East of Hokkaido",
+        "十勝沖": "Off Tokachi",
+        "根室半島南東沖": "Southeast of Nemuro Peninsula",
+        "釧路沖": "Off Kushiro",
+        "青森県東方沖": "East of Aomori Prefecture",
+        "岩手県沖": "Off Iwate Prefecture",
+        "熊本県": "Kumamoto Prefecture",
+        "鹿児島県": "Kagoshima Prefecture",
+        "沖縄県": "Okinawa Prefecture",
+        "関東地方": "Kanto Region",
+        "南海トラフ": "Nankai Trough",
+        "日本海東部": "Eastern Sea of Japan",
+        "硫黄島近海": "Near Iwo Jima"
+    };
 
-    fetch("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojson")
+    function translatePlace(jpName) {
+        if (!jpName) return "Japan Region";
+        if (placeMap[jpName]) return placeMap[jpName];
+        return jpName
+            .replace(/沖$/, " Offshore")
+            .replace(/県$/, " Prefecture")
+            .replace(/地方$/, " Region");
+    }
+
+    fetch("https://www.jma.go.jp/bosai/quake/data/list.json")
         .then(r => r.json())
-        .then(data => {
-            const japanEvents = data.features
-                .filter(eq => {
-                    const place = (eq.properties.place || "").toLowerCase();
-                    const [lon, lat] = eq.geometry.coordinates;
-                    return place.includes("japan") || (lat >= 24 && lat <= 46 && lon >= 122 && lon <= 146);
-                })
-                .sort((a, b) => b.properties.time - a.properties.time)
-                .slice(0, 3);
+        .then(list => {
+            const recent = Array.isArray(list) ? list.slice(0, 4) : [];
 
-            if (japanEvents.length === 0) {
+            if (recent.length === 0) {
                 container.innerHTML = '<div class="news-error">No recent seismic events.</div>';
                 return;
             }
 
             let html = '<ul class="news-articles-list">';
-            
-            japanEvents.forEach(eq => {
-                const mag = eq.properties.mag.toFixed(1);
-                let place = eq.properties.place
-                    .replace(/Japan region/i, "Japan")
-                    .replace(/,\s*Japan$/i, "")
-                    .trim();
-                
-                const time = new Date(eq.properties.time);
-                const depth = Math.round(eq.geometry.coordinates[2]);
-                
-                // Color class based on magnitude
+
+            recent.forEach(eq => {
+                const mag = (eq.mag || eq.magnitude || "?").toString();
+                const intensity = eq.maxi || eq.maxInt || "";
+
+                const rawPlace = eq.en_anm || eq.anm || eq.ttl || "Japan Region";
+                const place = translatePlace(rawPlace);
+
+                let time = new Date();
+                if (eq.ctt || eq.at) {
+                    const timeStr = (eq.ctt || eq.at).toString();
+                    if (timeStr.length === 14) {
+                        const formatted = `${timeStr.slice(0,4)}-${timeStr.slice(4,6)}-${timeStr.slice(6,8)}T${timeStr.slice(8,10)}:${timeStr.slice(10,12)}:${timeStr.slice(12,14)}+09:00`;
+                        time = new Date(formatted);
+                    }
+                }
+
+                const depthMatch = (eq.cod || "").match(/-(\d{1,4})/);
+                const depth = depthMatch ? Math.round(parseInt(depthMatch[1]) / 1000) : "?";
+
                 let magClass = "";
-                if (mag >= 6.0) magClass = "mag-6";
-                else if (mag >= 5.0) magClass = "mag-5";
-                else if (mag >= 4.0) magClass = "mag-4";
+                const magNum = parseFloat(mag);
+                if (magNum >= 6.0) magClass = "mag-6";
+                else if (magNum >= 5.0) magClass = "mag-5";
+                else if (magNum >= 4.0) magClass = "mag-4";
+
+                // === Smart Link with Coordinate Fallback ===
+                let linkUrl = "https://www.jma.go.jp/bosai/map.html";
+
+                if (eq.cod) {
+                    const match = eq.cod.match(/([+-]?\d+\.?\d*)([+-]\d+\.?\d*)/);
+                    if (match) {
+                        const lat = parseFloat(match[1]);
+                        const lon = parseFloat(match[2]);
+                        if (!isNaN(lat) && !isNaN(lon)) {
+                            const zoom = (magNum >= 6.5) ? 9 : (magNum >= 5.0 ? 7 : 6);
+                            linkUrl = `https://www.jma.go.jp/bosai/map.html#${zoom}/${lat.toFixed(2)}/${lon.toFixed(2)}&contents=earthquake_map&elem=int`;
+                        }
+                    }
+                }
 
                 html += `
                   <li class="news-item">
-                    <a href="${eq.properties.url}" target="_blank" rel="noopener noreferrer" class="news-link">
-                      <span class="${magClass}">M${mag}</span> — ${place}
+                    <a href="${linkUrl}" target="_blank" rel="noopener noreferrer" class="news-link">
+                      <span class="${magClass}">M${mag}</span>${intensity ? ` <small>(Int ${intensity})</small>` : ""} — ${place}
                     </a>
                     <div class="alert-meta">
                       ${time.toLocaleDateString("en-US", {month:"short", day:"numeric"})} 
@@ -553,20 +601,19 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
                   </li>`;
             });
-            
+
             html += "</ul>";
-            
-            // Add last updated time
             const now = new Date();
-            html += `<div class="last-updated">Last updated: ${now.toLocaleTimeString("en-US", {hour:"numeric", minute:"2-digit"})}</div>`;
+            html += `<div class="last-updated">Last updated: ${now.toLocaleTimeString("en-US", {hour:"numeric", minute:"2-digit"})} (JMA)</div>`;
             
             container.innerHTML = html;
         })
         .catch(() => {
-            container.innerHTML = '<div class="news-error">Seismic data unavailable.</div>';
+            container.innerHTML = '<div class="news-error">JMA seismic data unavailable.</div>';
         });
 });
 </script>
+<!-- ==================== END JAPAN EARTHQUAKE HISTORY ==================== -->
 
 </body>
 </html>
